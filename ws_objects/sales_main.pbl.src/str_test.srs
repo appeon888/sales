@@ -1,0 +1,7 @@
+﻿$PBExportHeader$str_test.srs
+global type str_test from structure
+	string		s_1
+	integer		i_1
+	radiobutton		rbb_1
+end type
+
