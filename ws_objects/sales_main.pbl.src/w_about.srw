@@ -88,7 +88,7 @@ type st_4 from statictext within w_about
 integer x = 73
 integer y = 476
 integer width = 1659
-integer height = 76
+integer height = 96
 integer textsize = -10
 integer weight = 400
 fontcharset fontcharset = ansi!
