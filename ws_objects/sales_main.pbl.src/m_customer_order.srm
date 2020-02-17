@@ -1,0 +1,2825 @@
+﻿$PBExportHeader$m_customer_order.srm
+forward
+global type m_customer_order from menu
+end type
+type m_file from menu within m_customer_order
+end type
+type m_orderviewer from menu within m_file
+end type
+type m_12 from menu within m_file
+end type
+type m_systemusermanager from menu within m_file
+end type
+type m_securitygroups from menu within m_systemusermanager
+end type
+type m_useraccounts from menu within m_systemusermanager
+end type
+type m_systemusermanager from menu within m_file
+m_securitygroups m_securitygroups
+m_useraccounts m_useraccounts
+end type
+type m_changepassword from menu within m_file
+end type
+type m_0 from menu within m_file
+end type
+type m_saveas from menu within m_file
+end type
+type m_print from menu within m_file
+end type
+type m_navigator from menu within m_file
+end type
+type m_step from menu within m_file
+end type
+type m_exit from menu within m_file
+end type
+type m_file from menu within m_customer_order
+m_orderviewer m_orderviewer
+m_12 m_12
+m_systemusermanager m_systemusermanager
+m_changepassword m_changepassword
+m_0 m_0
+m_saveas m_saveas
+m_print m_print
+m_navigator m_navigator
+m_step m_step
+m_exit m_exit
+end type
+type m_settings from menu within m_customer_order
+end type
+type m_defaultsettings from menu within m_settings
+end type
+type m_date from menu within m_defaultsettings
+end type
+type m_reportstyle from menu within m_defaultsettings
+end type
+type m_item1 from menu within m_reportstyle
+end type
+type m_item2 from menu within m_reportstyle
+end type
+type m_item3 from menu within m_reportstyle
+end type
+type m_item4 from menu within m_reportstyle
+end type
+type m_item5 from menu within m_reportstyle
+end type
+type m_reportstyle from menu within m_defaultsettings
+m_item1 m_item1
+m_item2 m_item2
+m_item3 m_item3
+m_item4 m_item4
+m_item5 m_item5
+end type
+type m_defaultsettings from menu within m_settings
+m_date m_date
+m_reportstyle m_reportstyle
+end type
+type m_step2 from menu within m_settings
+end type
+type m_autorefresh from menu within m_settings
+end type
+type m_step3 from menu within m_settings
+end type
+type m_reportoptions from menu within m_settings
+end type
+type m_settings from menu within m_customer_order
+m_defaultsettings m_defaultsettings
+m_step2 m_step2
+m_autorefresh m_autorefresh
+m_step3 m_step3
+m_reportoptions m_reportoptions
+end type
+type m_customer from menu within m_customer_order
+end type
+type m_newcurtomer from menu within m_customer
+end type
+type m_customermaintenance from menu within m_customer
+end type
+type m_99 from menu within m_customer
+end type
+type m_accountsreceivable from menu within m_customer
+end type
+type m_customer from menu within m_customer_order
+m_newcurtomer m_newcurtomer
+m_customermaintenance m_customermaintenance
+m_99 m_99
+m_accountsreceivable m_accountsreceivable
+end type
+type m_order from menu within m_customer_order
+end type
+type m_neworder from menu within m_order
+end type
+type m_ordermaintencance from menu within m_order
+end type
+type m_3434 from menu within m_order
+end type
+type m_orderprocessing from menu within m_order
+end type
+type m_ordershipment from menu within m_order
+end type
+type m_order from menu within m_customer_order
+m_neworder m_neworder
+m_ordermaintencance m_ordermaintencance
+m_3434 m_3434
+m_orderprocessing m_orderprocessing
+m_ordershipment m_ordershipment
+end type
+type m_1 from menu within m_customer_order
+end type
+type m_catalogmanager from menu within m_1
+end type
+type m_categories from menu within m_catalogmanager
+end type
+type m_products from menu within m_catalogmanager
+end type
+type m_catalogmanager from menu within m_1
+m_categories m_categories
+m_products m_products
+end type
+type m_4 from menu within m_1
+end type
+type m_78987 from menu within m_1
+end type
+type m_3 from menu within m_1
+end type
+type m_1 from menu within m_customer_order
+m_catalogmanager m_catalogmanager
+m_4 m_4
+m_78987 m_78987
+m_3 m_3
+end type
+type m_report1 from menu within m_customer_order
+end type
+type m_salesreports from menu within m_report1
+end type
+type m_byordertype from menu within m_salesreports
+end type
+type m_byproductcategory from menu within m_salesreports
+end type
+type m_bycustomer from menu within m_salesreports
+end type
+type m_salesreports from menu within m_report1
+m_byordertype m_byordertype
+m_byproductcategory m_byproductcategory
+m_bycustomer m_bycustomer
+end type
+type m_salessummary from menu within m_report1
+end type
+type m_report1 from menu within m_customer_order
+m_salesreports m_salesreports
+m_salessummary m_salessummary
+end type
+type m_window from menu within m_customer_order
+end type
+type m_windowlist from menu within m_window
+end type
+type m_window from menu within m_customer_order
+m_windowlist m_windowlist
+end type
+type m_help from menu within m_customer_order
+end type
+type m_about from menu within m_help
+end type
+type m_help from menu within m_customer_order
+m_about m_about
+end type
+global type m_customer_order from menu
+m_file m_file
+m_settings m_settings
+m_customer m_customer
+m_order m_order
+m_1 m_1
+m_report1 m_report1
+m_window m_window
+m_help m_help
+end type
+end forward
+
+global type m_customer_order from menu
+m_file m_file
+m_settings m_settings
+m_customer m_customer
+m_order m_order
+m_1 m_1
+m_report1 m_report1
+m_window m_window
+m_help m_help
+end type
+global m_customer_order m_customer_order
+
+on m_customer_order.create
+m_customer_order=this
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_file=create m_file
+this.m_settings=create m_settings
+this.m_customer=create m_customer
+this.m_order=create m_order
+this.m_1=create m_1
+this.m_report1=create m_report1
+this.m_window=create m_window
+this.m_help=create m_help
+this.Item[UpperBound(this.Item)+1]=this.m_file
+this.Item[UpperBound(this.Item)+1]=this.m_settings
+this.Item[UpperBound(this.Item)+1]=this.m_customer
+this.Item[UpperBound(this.Item)+1]=this.m_order
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_report1
+this.Item[UpperBound(this.Item)+1]=this.m_window
+this.Item[UpperBound(this.Item)+1]=this.m_help
+end on
+
+on m_customer_order.destroy
+call super::destroy
+destroy(this.m_file)
+destroy(this.m_settings)
+destroy(this.m_customer)
+destroy(this.m_order)
+destroy(this.m_1)
+destroy(this.m_report1)
+destroy(this.m_window)
+destroy(this.m_help)
+end on
+
+type m_file from menu within m_customer_order
+m_orderviewer m_orderviewer
+m_12 m_12
+m_systemusermanager m_systemusermanager
+m_changepassword m_changepassword
+m_0 m_0
+m_saveas m_saveas
+m_print m_print
+m_navigator m_navigator
+m_step m_step
+m_exit m_exit
+end type
+
+on m_file.create
+call super::create
+this.text = "File"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_orderviewer=create m_orderviewer
+this.m_12=create m_12
+this.m_systemusermanager=create m_systemusermanager
+this.m_changepassword=create m_changepassword
+this.m_0=create m_0
+this.m_saveas=create m_saveas
+this.m_print=create m_print
+this.m_navigator=create m_navigator
+this.m_step=create m_step
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_orderviewer
+this.Item[UpperBound(this.Item)+1]=this.m_12
+this.Item[UpperBound(this.Item)+1]=this.m_systemusermanager
+this.Item[UpperBound(this.Item)+1]=this.m_changepassword
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_saveas
+this.Item[UpperBound(this.Item)+1]=this.m_print
+this.Item[UpperBound(this.Item)+1]=this.m_navigator
+this.Item[UpperBound(this.Item)+1]=this.m_step
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_file.destroy
+call super::destroy
+destroy(this.m_orderviewer)
+destroy(this.m_12)
+destroy(this.m_systemusermanager)
+destroy(this.m_changepassword)
+destroy(this.m_0)
+destroy(this.m_saveas)
+destroy(this.m_print)
+destroy(this.m_navigator)
+destroy(this.m_step)
+destroy(this.m_exit)
+end on
+
+type m_orderviewer from menu within m_file
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_order_viewer
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+// parentwindow.dynamic event ue_opensheet("w_order_viewer")
+opensheet(w_order_viewer , parentwindow , 0 , Original! )
+end event
+
+on m_orderviewer.create
+call super::create
+this.tag = "Order Viewer"
+this.text = "Order Viewer"
+this.toolbaritemname = ".\picture\order16.jpg"
+this.toolbaritemtext = "Order Viewer"
+this.menuimage = ".\picture\orderview.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_orderviewer.destroy
+call super::destroy
+end on
+
+type m_12 from menu within m_file
+end type
+
+on m_12.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_12.destroy
+call super::destroy
+end on
+
+type m_systemusermanager from menu within m_file
+m_securitygroups m_securitygroups
+m_useraccounts m_useraccounts
+event create ( )
+event destroy ( )
+end type
+
+on m_systemusermanager.create
+call super::create
+this.text = "Security Manager"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_securitygroups=create m_securitygroups
+this.m_useraccounts=create m_useraccounts
+this.Item[UpperBound(this.Item)+1]=this.m_securitygroups
+this.Item[UpperBound(this.Item)+1]=this.m_useraccounts
+end on
+
+on m_systemusermanager.destroy
+call super::destroy
+destroy(this.m_securitygroups)
+destroy(this.m_useraccounts)
+end on
+
+type m_securitygroups from menu within m_systemusermanager
+end type
+
+on m_securitygroups.create
+call super::create
+this.tag = "Security Manager - Security Groups"
+this.text = "Security Groups"
+this.menuimage = ".\picture\group_gear.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_securitygroups.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_group_list
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+open(w_group_list,parentwindow)
+end event
+
+type m_useraccounts from menu within m_systemusermanager
+end type
+
+on m_useraccounts.create
+call super::create
+this.tag = "Security Manager - User Accounts"
+this.text = "User Accounts"
+this.toolbaritemtext = "User Accounts"
+this.menuimage = ".\picture\useraccounts.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_useraccounts.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_user_list
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+open(w_user_list,parentwindow)
+end event
+
+type m_changepassword from menu within m_file
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_change_password
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+open(w_change_password,parentwindow)
+end event
+
+on m_changepassword.create
+call super::create
+this.text = "Change Password"
+this.toolbaritemtext = "Change Password"
+this.menuimage = ".\picture\change_password.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_changepassword.destroy
+call super::destroy
+end on
+
+type m_0 from menu within m_file
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_saveas from menu within m_file
+end type
+
+on m_saveas.create
+call super::create
+this.visible = false
+this.text = "Save As..."
+this.toolbaritemtext = "Save As"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_saveas.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic  event ue_saveas()
+end event
+
+type m_print from menu within m_file
+end type
+
+on m_print.create
+call super::create
+this.visible = false
+this.text = "Print"
+this.toolbaritemtext = "Print"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_print.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic  event ue_print()
+end event
+
+type m_navigator from menu within m_file
+end type
+
+on m_navigator.create
+call super::create
+this.text = "Navigator"
+this.toolbaritemname = "application_home.jpg"
+this.toolbaritemtext = "Navigator"
+this.toolbaritemorder = 9998
+this.toolbaritemspace = 1
+this.menuimage = "application_home.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_navigator.destroy
+call super::destroy
+end on
+
+event clicked;opensheet(w_navigator,parentwindow,0,original!)
+end event
+
+type m_step from menu within m_file
+end type
+
+on m_step.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_step.destroy
+call super::destroy
+end on
+
+type m_exit from menu within m_file
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: close parentwindow
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+close(parentwindow)
+end event
+
+on m_exit.create
+call super::create
+this.text = "Exit"
+this.toolbaritemname = "exit!"
+this.toolbaritemtext = "Exit"
+this.toolbaritemorder = 9999
+this.toolbaritemspace = 1
+this.menuimage = "exit!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_settings from menu within m_customer_order
+m_defaultsettings m_defaultsettings
+m_step2 m_step2
+m_autorefresh m_autorefresh
+m_step3 m_step3
+m_reportoptions m_reportoptions
+end type
+
+on m_settings.create
+call super::create
+this.visible = false
+this.text = "Settings"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_defaultsettings=create m_defaultsettings
+this.m_step2=create m_step2
+this.m_autorefresh=create m_autorefresh
+this.m_step3=create m_step3
+this.m_reportoptions=create m_reportoptions
+this.Item[UpperBound(this.Item)+1]=this.m_defaultsettings
+this.Item[UpperBound(this.Item)+1]=this.m_step2
+this.Item[UpperBound(this.Item)+1]=this.m_autorefresh
+this.Item[UpperBound(this.Item)+1]=this.m_step3
+this.Item[UpperBound(this.Item)+1]=this.m_reportoptions
+end on
+
+on m_settings.destroy
+call super::destroy
+destroy(this.m_defaultsettings)
+destroy(this.m_step2)
+destroy(this.m_autorefresh)
+destroy(this.m_step3)
+destroy(this.m_reportoptions)
+end on
+
+type m_defaultsettings from menu within m_settings
+m_date m_date
+m_reportstyle m_reportstyle
+end type
+
+on m_defaultsettings.create
+call super::create
+this.text = "Default Settings"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_date=create m_date
+this.m_reportstyle=create m_reportstyle
+this.Item[UpperBound(this.Item)+1]=this.m_date
+this.Item[UpperBound(this.Item)+1]=this.m_reportstyle
+end on
+
+on m_defaultsettings.destroy
+call super::destroy
+destroy(this.m_date)
+destroy(this.m_reportstyle)
+end on
+
+type m_date from menu within m_defaultsettings
+end type
+
+on m_date.create
+call super::create
+this.tag = "Date Scope"
+this.text = "Date Scope"
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Date Scope"
+this.menuimage = ".\picture\data_chooser.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_date.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic event ue_Settings(this.tag)
+end event
+
+type m_reportstyle from menu within m_defaultsettings
+m_item1 m_item1
+m_item2 m_item2
+m_item3 m_item3
+m_item4 m_item4
+m_item5 m_item5
+end type
+
+on m_reportstyle.create
+call super::create
+this.text = "Report Style"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_item1=create m_item1
+this.m_item2=create m_item2
+this.m_item3=create m_item3
+this.m_item4=create m_item4
+this.m_item5=create m_item5
+this.Item[UpperBound(this.Item)+1]=this.m_item1
+this.Item[UpperBound(this.Item)+1]=this.m_item2
+this.Item[UpperBound(this.Item)+1]=this.m_item3
+this.Item[UpperBound(this.Item)+1]=this.m_item4
+this.Item[UpperBound(this.Item)+1]=this.m_item5
+end on
+
+on m_reportstyle.destroy
+call super::destroy
+destroy(this.m_item1)
+destroy(this.m_item2)
+destroy(this.m_item3)
+destroy(this.m_item4)
+destroy(this.m_item5)
+end on
+
+type m_item1 from menu within m_reportstyle
+end type
+
+on m_item1.create
+call super::create
+this.tag = "Item1"
+this.text = "Item1"
+this.checked = true
+this.toolbaritemvisible = false
+this.toolbaritemname = "custom073!"
+this.menuimage = "Custom073!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item1.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+ParentWindow.Dynamic Event ue_Settings(This.Tag)
+
+If This.Checked Then Return
+
+This.Checked = True
+m_item2.Checked = False
+m_item3.Checked = False
+m_item4.Checked = False
+m_item5.Checked = False
+
+
+end event
+
+type m_item2 from menu within m_reportstyle
+end type
+
+on m_item2.create
+call super::create
+this.tag = "Item2"
+this.text = "Item2"
+this.toolbaritemvisible = false
+this.toolbaritemname = "line!"
+this.menuimage = "Line!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item2.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic event ue_Settings(this.tag)
+
+IF this.checked THEN return
+
+this.checked = TRUE
+m_item1.checked = FALSE
+m_item3.checked = FALSE
+m_item4.checked = FALSE
+m_item5.checked = FALSE
+
+end event
+
+type m_item3 from menu within m_reportstyle
+end type
+
+on m_item3.create
+call super::create
+this.tag = "Item3"
+this.text = "Item3"
+this.toolbaritemvisible = false
+this.toolbaritemname = "custom067!"
+this.menuimage = "Custom067!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item3.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic event ue_Settings(this.tag)
+
+IF this.checked THEN return
+
+this.checked = TRUE
+m_item2.checked = FALSE
+m_item1.checked = FALSE
+m_item4.checked = FALSE
+m_item5.checked = FALSE
+
+end event
+
+type m_item4 from menu within m_reportstyle
+end type
+
+on m_item4.create
+call super::create
+this.tag = "Item4"
+this.text = "Item4"
+this.toolbaritemvisible = false
+this.toolbaritemname = "crosstab!"
+this.menuimage = "CrossTab!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item4.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic event ue_Settings(this.tag)
+
+IF this.checked THEN return
+
+this.checked = TRUE
+m_item2.checked = FALSE
+m_item3.checked = FALSE
+m_item1.checked = FALSE
+m_item5.checked = FALSE
+
+end event
+
+type m_item5 from menu within m_reportstyle
+end type
+
+on m_item5.create
+call super::create
+this.tag = "Item5"
+this.visible = false
+this.text = "Item5"
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_item5.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic event ue_Settings(this.tag)
+
+IF this.checked THEN return
+
+this.checked = TRUE
+m_item2.checked = FALSE
+m_item3.checked = FALSE
+m_item4.checked = FALSE
+m_item1.checked = FALSE
+
+end event
+
+type m_step2 from menu within m_settings
+end type
+
+on m_step2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_step2.destroy
+call super::destroy
+end on
+
+type m_autorefresh from menu within m_settings
+end type
+
+on m_autorefresh.create
+call super::create
+this.text = "Auto Refresh"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_autorefresh.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+this.checked = not this.checked
+
+parentwindow.dynamic event ue_setautorefresh(this.checked)
+end event
+
+type m_step3 from menu within m_settings
+end type
+
+on m_step3.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_step3.destroy
+call super::destroy
+end on
+
+type m_reportoptions from menu within m_settings
+end type
+
+on m_reportoptions.create
+call super::create
+this.tag = "Grid Report Options"
+this.text = "Grid Report Options"
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Report Options"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_reportoptions.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+parentwindow.dynamic event ue_Settings(this.tag)
+end event
+
+type m_customer from menu within m_customer_order
+m_newcurtomer m_newcurtomer
+m_customermaintenance m_customermaintenance
+m_99 m_99
+m_accountsreceivable m_accountsreceivable
+end type
+
+on m_customer.create
+call super::create
+this.text = "Customer"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_newcurtomer=create m_newcurtomer
+this.m_customermaintenance=create m_customermaintenance
+this.m_99=create m_99
+this.m_accountsreceivable=create m_accountsreceivable
+this.Item[UpperBound(this.Item)+1]=this.m_newcurtomer
+this.Item[UpperBound(this.Item)+1]=this.m_customermaintenance
+this.Item[UpperBound(this.Item)+1]=this.m_99
+this.Item[UpperBound(this.Item)+1]=this.m_accountsreceivable
+end on
+
+on m_customer.destroy
+call super::destroy
+destroy(this.m_newcurtomer)
+destroy(this.m_customermaintenance)
+destroy(this.m_99)
+destroy(this.m_accountsreceivable)
+end on
+
+type m_newcurtomer from menu within m_customer
+end type
+
+on m_newcurtomer.create
+call super::create
+this.tag = "New Customer"
+this.text = "New Customer"
+this.toolbaritemname = "customernew.jpg"
+this.toolbaritemtext = "New Customer"
+this.menuimage = "customernew.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_newcurtomer.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_customer_new
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+opensheet(w_customer_new,parentwindow,0,original!)
+// parentwindow.dynamic event ue_opensheet("w_customer_new")
+end event
+
+type m_customermaintenance from menu within m_customer
+end type
+
+on m_customermaintenance.create
+call super::create
+this.tag = "Customer Maintenance"
+this.text = "Customer Maintenance"
+this.menuimage = ".\picture\customermaintence.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_customermaintenance.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_customer_maintenance
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+opensheet(w_customer_maintenance,parentwindow,0,original!)
+
+
+
+end event
+
+type m_99 from menu within m_customer
+end type
+
+on m_99.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_99.destroy
+call super::destroy
+end on
+
+type m_accountsreceivable from menu within m_customer
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_accounts_receivable
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+opensheet(w_accounts_receivable,parentwindow,0,original!)
+//parentwindow.dynamic event ue_opensheet("w_accounts_receivable")
+end event
+
+on m_accountsreceivable.create
+call super::create
+this.tag = "Accounts Receivable "
+this.text = "Accounts Receivable "
+this.menuimage = ".\picture\orderview.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_accountsreceivable.destroy
+call super::destroy
+end on
+
+type m_order from menu within m_customer_order
+m_neworder m_neworder
+m_ordermaintencance m_ordermaintencance
+m_3434 m_3434
+m_orderprocessing m_orderprocessing
+m_ordershipment m_ordershipment
+end type
+
+on m_order.create
+call super::create
+this.text = "Order"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_neworder=create m_neworder
+this.m_ordermaintencance=create m_ordermaintencance
+this.m_3434=create m_3434
+this.m_orderprocessing=create m_orderprocessing
+this.m_ordershipment=create m_ordershipment
+this.Item[UpperBound(this.Item)+1]=this.m_neworder
+this.Item[UpperBound(this.Item)+1]=this.m_ordermaintencance
+this.Item[UpperBound(this.Item)+1]=this.m_3434
+this.Item[UpperBound(this.Item)+1]=this.m_orderprocessing
+this.Item[UpperBound(this.Item)+1]=this.m_ordershipment
+end on
+
+on m_order.destroy
+call super::destroy
+destroy(this.m_neworder)
+destroy(this.m_ordermaintencance)
+destroy(this.m_3434)
+destroy(this.m_orderprocessing)
+destroy(this.m_ordershipment)
+end on
+
+type m_neworder from menu within m_order
+end type
+
+on m_neworder.create
+call super::create
+this.tag = "New Order"
+this.text = "New Order"
+this.toolbaritemname = ".\picture\ordernew.jpg"
+this.toolbaritemtext = "New Order"
+this.menuimage = ".\picture\ordernew.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_neworder.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+str_general		lstr_parm
+
+lstr_parm.faction = "new!"
+opensheetwithParm(w_order_new ,lstr_parm, parentwindow , 0 , Original! )
+
+//parentwindow.dynamic event ue_opensheetwithparam("w_order_new",lstr_parm)
+
+end event
+
+type m_ordermaintencance from menu within m_order
+end type
+
+on m_ordermaintencance.create
+call super::create
+this.tag = "Order Maintenance"
+this.text = "Order Maintenance"
+this.menuimage = ".\picture\ordermaintence.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_ordermaintencance.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open  w_order_main
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+opensheet(w_order_main,parentwindow,0,original!)
+//parentwindow.dynamic event ue_opensheet("w_order_main")
+end event
+
+type m_3434 from menu within m_order
+end type
+
+on m_3434.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_3434.destroy
+call super::destroy
+end on
+
+type m_orderprocessing from menu within m_order
+end type
+
+on m_orderprocessing.create
+call super::create
+this.tag = "Order Processing"
+this.text = "Order Processing"
+this.toolbaritemname = ".\picture\orderprocessing.jpg"
+this.toolbaritemtext = "Order Processing"
+this.menuimage = ".\picture\orderprocessing.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_orderprocessing.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_processing_order
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+opensheet(w_processing_order,parentwindow,0,original!)
+//parentwindow.dynamic event ue_opensheet("w_processing_order")
+end event
+
+type m_ordershipment from menu within m_order
+end type
+
+on m_ordershipment.create
+call super::create
+this.tag = "Order Shipment"
+this.text = "Order Shipment"
+this.toolbaritemname = ".\picture\ordership.jpg"
+this.toolbaritemtext = "Order Shipment"
+this.menuimage = ".\picture\ordership.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_ordershipment.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_ship_order
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+opensheet(w_ship_order,parentwindow,0,original!)
+//parentwindow.dynamic event ue_opensheet("w_ship_order")
+end event
+
+type m_1 from menu within m_customer_order
+m_catalogmanager m_catalogmanager
+m_4 m_4
+m_78987 m_78987
+m_3 m_3
+event create ( )
+event destroy ( )
+end type
+
+on m_1.create
+call super::create
+this.text = "Product"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_catalogmanager=create m_catalogmanager
+this.m_4=create m_4
+this.m_78987=create m_78987
+this.m_3=create m_3
+this.Item[UpperBound(this.Item)+1]=this.m_catalogmanager
+this.Item[UpperBound(this.Item)+1]=this.m_4
+this.Item[UpperBound(this.Item)+1]=this.m_78987
+this.Item[UpperBound(this.Item)+1]=this.m_3
+end on
+
+on m_1.destroy
+call super::destroy
+destroy(this.m_catalogmanager)
+destroy(this.m_4)
+destroy(this.m_78987)
+destroy(this.m_3)
+end on
+
+type m_catalogmanager from menu within m_1
+m_categories m_categories
+m_products m_products
+end type
+
+on m_catalogmanager.create
+call super::create
+this.text = "Catalog Manager"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_categories=create m_categories
+this.m_products=create m_products
+this.Item[UpperBound(this.Item)+1]=this.m_categories
+this.Item[UpperBound(this.Item)+1]=this.m_products
+end on
+
+on m_catalogmanager.destroy
+call super::destroy
+destroy(this.m_categories)
+destroy(this.m_products)
+end on
+
+type m_categories from menu within m_catalogmanager
+event create ( )
+event destroy ( )
+end type
+
+on m_categories.create
+call super::create
+this.tag = "Catalog Manager - Categories"
+this.text = "Categories"
+this.menuimage = ".\picture\categories.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_categories.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_product_category_edit
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+opensheet(w_product_category_edit,parentwindow,0,original!)
+//parentwindow.dynamic event ue_opensheet("w_product_category_edit")
+end event
+
+type m_products from menu within m_catalogmanager
+event create ( )
+event destroy ( )
+end type
+
+on m_products.create
+call super::create
+this.tag = "Catalog Manager - Products"
+this.text = "Products"
+this.menuimage = ".\picture\products.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_products.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_product_edit
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+opensheet(w_product_edit,parentwindow,0,original!)
+//parentwindow.dynamic event ue_opensheet("w_product_edit")
+end event
+
+type m_4 from menu within m_1
+event create ( )
+event destroy ( )
+end type
+
+on m_4.create
+call super::create
+this.tag = "New Product"
+this.text = "New Product"
+this.toolbaritemtext = "New Product"
+this.menuimage = ".\picture\productnew.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_4.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+w_product_new 		lwin_product_new
+str_general			lstr_parm
+
+lstr_parm.faction = "new!"
+OpenSheetWithParm(lwin_product_new , lstr_parm,ParentWindow , 0 , Original! )
+//parentwindow.dynamic event ue_opensheetwithparam("w_product_new",lstr_parm)
+
+end event
+
+type m_78987 from menu within m_1
+end type
+
+on m_78987.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_78987.destroy
+call super::destroy
+end on
+
+type m_3 from menu within m_1
+event create ( )
+event destroy ( )
+end type
+
+on m_3.create
+call super::create
+this.tag = "View Product Catalog"
+this.text = "View Product Catalog"
+this.menuimage = ".\picture\category.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_3.destroy
+call super::destroy
+end on
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_product_catalog_view
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+opensheet(w_product_catalog_view,parentwindow,0,original!)
+//parentwindow.dynamic event ue_opensheet("w_product_catalog_view")
+end event
+
+type m_report1 from menu within m_customer_order
+m_salesreports m_salesreports
+m_salessummary m_salessummary
+end type
+
+on m_report1.create
+call super::create
+this.text = "Report"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_salesreports=create m_salesreports
+this.m_salessummary=create m_salessummary
+this.Item[UpperBound(this.Item)+1]=this.m_salesreports
+this.Item[UpperBound(this.Item)+1]=this.m_salessummary
+end on
+
+on m_report1.destroy
+call super::destroy
+destroy(this.m_salesreports)
+destroy(this.m_salessummary)
+end on
+
+type m_salesreports from menu within m_report1
+m_byordertype m_byordertype
+m_byproductcategory m_byproductcategory
+m_bycustomer m_bycustomer
+end type
+
+on m_salesreports.create
+call super::create
+this.text = "Sales Reports"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_byordertype=create m_byordertype
+this.m_byproductcategory=create m_byproductcategory
+this.m_bycustomer=create m_bycustomer
+this.Item[UpperBound(this.Item)+1]=this.m_byordertype
+this.Item[UpperBound(this.Item)+1]=this.m_byproductcategory
+this.Item[UpperBound(this.Item)+1]=this.m_bycustomer
+end on
+
+on m_salesreports.destroy
+call super::destroy
+destroy(this.m_byordertype)
+destroy(this.m_byproductcategory)
+destroy(this.m_bycustomer)
+end on
+
+type m_byordertype from menu within m_salesreports
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+str_rptparm		lstr_parm
+
+lstr_parm.ftitle = 'Sales Report by Order Type'
+lstr_parm.fdataobject = ""
+opensheetWithParm(w_rpt_order_type,lstr_parm , parentwindow , 0 , Original! )
+//parentwindow.dynamic event ue_opensheetwithparam("w_rpt_order_type",lstr_parm )
+
+end event
+
+on m_byordertype.create
+call super::create
+this.tag = "Sales Reports - By Order Type"
+this.text = "By Order Type"
+this.menuimage = ".\picture\chart_column.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_byordertype.destroy
+call super::destroy
+end on
+
+type m_byproductcategory from menu within m_salesreports
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+str_rptparm		lstr_parm
+
+lstr_parm.ftitle = 'Sales Report by Product Category'
+lstr_parm.fdataobject = ""
+//parentwindow.dynamic event ue_opensheetWithParm("w_rpt_category_summary",lstr_parm )
+opensheetWithParm(w_rpt_category_summary,lstr_parm , parentwindow , 0 , Original! )
+end event
+
+on m_byproductcategory.create
+call super::create
+this.tag = "Sales Reports - By Product Category"
+this.text = "By Product Category"
+this.menuimage = ".\picture\salereport.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_byproductcategory.destroy
+call super::destroy
+end on
+
+type m_bycustomer from menu within m_salesreports
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+str_rptparm		lstr_parm
+
+lstr_parm.ftitle = 'Sales Report by Customer'
+lstr_parm.fdataobject = ""
+//parentwindow.dynamic event ue_opensheetwithparam("w_rpt_order_date_summary",lstr_parm )
+opensheetWithParm(w_rpt_order_date_summary,lstr_parm , parentwindow , 0 , Original! )
+end event
+
+on m_bycustomer.create
+call super::create
+this.tag = "Sales Reports - By Customer"
+this.text = "By Customer"
+this.menuimage = ".\picture\report_cross.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_bycustomer.destroy
+call super::destroy
+end on
+
+type m_salessummary from menu within m_report1
+event clicked ( )
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: 
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+str_rptparm		lstr_parm
+
+lstr_parm.ftitle = This.Text
+lstr_parm.fdataobject = "d_rep_customers_summary"
+//parentwindow.dynamic event ue_opensheetwithparam("w_rpt_order_customer_summary",lstr_parm )
+opensheetWithParm(w_rpt_order_customer_summary,lstr_parm , parentwindow , 0 , Original! )
+end event
+
+on m_salessummary.create
+call super::create
+this.tag = "Customer Report"
+this.text = "Customer Report"
+this.menuimage = ".\picture\report.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_salessummary.destroy
+call super::destroy
+end on
+
+type m_window from menu within m_customer_order
+m_windowlist m_windowlist
+end type
+
+on m_window.create
+call super::create
+this.text = "Window"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_windowlist=create m_windowlist
+this.Item[UpperBound(this.Item)+1]=this.m_windowlist
+end on
+
+on m_window.destroy
+call super::destroy
+destroy(this.m_windowlist)
+end on
+
+type m_windowlist from menu within m_window
+end type
+
+on m_windowlist.create
+call super::create
+this.text = "Window List"
+this.enabled = false
+this.menuimage = ".\picture\windowlist.jpg"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_windowlist.destroy
+call super::destroy
+end on
+
+type m_help from menu within m_customer_order
+m_about m_about
+end type
+
+on m_help.create
+call super::create
+this.text = "Help"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_about=create m_about
+this.Item[UpperBound(this.Item)+1]=this.m_about
+end on
+
+on m_help.destroy
+call super::destroy
+destroy(this.m_about)
+end on
+
+type m_about from menu within m_help
+end type
+
+event clicked;//====================================================================
+// Event: clicked()
+//--------------------------------------------------------------------
+// Description: open w_about
+//--------------------------------------------------------------------
+// Arguments: (none)
+//--------------------------------------------------------------------
+// Returns: (none)
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+open(w_about)
+end event
+
+on m_about.create
+call super::create
+this.text = "About"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+

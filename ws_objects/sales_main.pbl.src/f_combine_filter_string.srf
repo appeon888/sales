@@ -1,0 +1,44 @@
+﻿$PBExportHeader$f_combine_filter_string.srf
+global type f_combine_filter_string from function_object
+end type
+
+forward prototypes
+global function string f_combine_filter_string (string as_custfilter, string as_orderfilter)
+end prototypes
+
+global function string f_combine_filter_string (string as_custfilter, string as_orderfilter);//====================================================================
+// Function: f_combine_filter_string()
+//--------------------------------------------------------------------
+// Description: truncate the bracket  
+//--------------------------------------------------------------------
+// Arguments: 
+//		value	string	as_custfilter 		
+//		value	string	as_orderfilter		
+//--------------------------------------------------------------------
+// Returns: string
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+String  ls_originalfilter
+
+as_custfilter  = Trim(as_custfilter)
+as_orderfilter = Trim(as_orderfilter)
+
+If as_custfilter = '' Then
+	ls_originalfilter = as_orderfilter
+ElseIf as_orderfilter = '' Then
+	ls_originalfilter = as_custfilter
+Else //truncate the bracket
+	ls_originalfilter = Mid(as_custfilter,1,Len(as_custfilter) - 1) + ' and ' + Mid(as_orderfilter,2)
+End If
+
+Return ls_originalfilter
+
+end function
+

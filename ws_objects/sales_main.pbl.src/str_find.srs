@@ -1,0 +1,7 @@
+﻿$PBExportHeader$str_find.srs
+global type str_find from structure
+	string		s_findtype		descriptor "comment" = "1:find;2:find next"
+	datawindow		dw_finddatawindow
+	string		s_findText
+end type
+

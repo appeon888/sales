@@ -1,0 +1,632 @@
+﻿$PBExportHeader$m_report_ordertype.srm
+$PBExportComments$Report Menu --Order Type
+forward
+global type m_report_ordertype from m_customer_order
+end type
+end forward
+
+global type m_report_ordertype from m_customer_order
+end type
+global m_report_ordertype m_report_ordertype
+
+on m_report_ordertype.create
+m_report_ordertype=this
+call super::create
+this.text = "m_report_ordertype"
+end on
+
+on m_report_ordertype.destroy
+call super::destroy
+end on
+
+type m_file from m_customer_order`m_file within m_report_ordertype
+end type
+
+on m_file.create
+call super::create
+end on
+
+on m_file.destroy
+call super::destroy
+end on
+
+type m_orderviewer from m_customer_order`m_orderviewer within m_file
+end type
+
+on m_orderviewer.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_orderviewer.destroy
+call super::destroy
+end on
+
+type m_12 from m_customer_order`m_12 within m_file
+end type
+
+on m_12.create
+call super::create
+end on
+
+on m_12.destroy
+call super::destroy
+end on
+
+type m_systemusermanager from m_customer_order`m_systemusermanager within m_file
+end type
+
+on m_systemusermanager.create
+call super::create
+end on
+
+on m_systemusermanager.destroy
+call super::destroy
+end on
+
+type m_securitygroups from m_customer_order`m_securitygroups within m_systemusermanager
+end type
+
+on m_securitygroups.create
+call super::create
+end on
+
+on m_securitygroups.destroy
+call super::destroy
+end on
+
+type m_useraccounts from m_customer_order`m_useraccounts within m_systemusermanager
+end type
+
+on m_useraccounts.create
+call super::create
+end on
+
+on m_useraccounts.destroy
+call super::destroy
+end on
+
+type m_changepassword from m_customer_order`m_changepassword within m_file
+end type
+
+on m_changepassword.create
+call super::create
+end on
+
+on m_changepassword.destroy
+call super::destroy
+end on
+
+type m_0 from m_customer_order`m_0 within m_file
+end type
+
+on m_0.create
+call super::create
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_saveas from m_customer_order`m_saveas within m_file
+end type
+
+on m_saveas.create
+call super::create
+end on
+
+on m_saveas.destroy
+call super::destroy
+end on
+
+type m_print from m_customer_order`m_print within m_file
+end type
+
+on m_print.create
+call super::create
+this.visible = true
+this.toolbaritemname = "print!"
+end on
+
+on m_print.destroy
+call super::destroy
+end on
+
+type m_step from m_customer_order`m_step within m_file
+end type
+
+on m_step.create
+call super::create
+this.visible = true
+end on
+
+on m_step.destroy
+call super::destroy
+end on
+
+type m_exit from m_customer_order`m_exit within m_file
+end type
+
+on m_exit.create
+call super::create
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_settings from m_customer_order`m_settings within m_report_ordertype
+end type
+
+on m_settings.create
+call super::create
+this.visible = true
+end on
+
+on m_settings.destroy
+call super::destroy
+end on
+
+type m_defaultsettings from m_customer_order`m_defaultsettings within m_settings
+end type
+
+on m_defaultsettings.create
+call super::create
+end on
+
+on m_defaultsettings.destroy
+call super::destroy
+end on
+
+type m_date from m_customer_order`m_date within m_defaultsettings
+end type
+
+on m_date.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_date.destroy
+call super::destroy
+end on
+
+type m_reportstyle from m_customer_order`m_reportstyle within m_defaultsettings
+end type
+
+on m_reportstyle.create
+call super::create
+end on
+
+on m_reportstyle.destroy
+call super::destroy
+end on
+
+type m_item1 from m_customer_order`m_item1 within m_reportstyle
+end type
+
+on m_item1.create
+call super::create
+this.tag = "2D Pie"
+this.text = "2D Pie"
+this.toolbaritemvisible = true
+this.toolbaritemtext = "2D Pie"
+end on
+
+on m_item1.destroy
+call super::destroy
+end on
+
+type m_item2 from m_customer_order`m_item2 within m_reportstyle
+end type
+
+on m_item2.create
+call super::create
+this.tag = "2D BarStacked"
+this.text = "2D BarStacked"
+this.toolbaritemvisible = true
+this.toolbaritemname = "UnionReturn!"
+this.toolbaritemtext = "2D BarStacked"
+end on
+
+on m_item2.destroy
+call super::destroy
+end on
+
+type m_item3 from m_customer_order`m_item3 within m_reportstyle
+end type
+
+on m_item3.create
+call super::create
+this.tag = "3D Column"
+this.text = "3D Column"
+this.toolbaritemvisible = true
+this.toolbaritemtext = "3D Column"
+end on
+
+on m_item3.destroy
+call super::destroy
+end on
+
+type m_item4 from m_customer_order`m_item4 within m_reportstyle
+end type
+
+on m_item4.create
+call super::create
+this.tag = "Grid Data"
+this.text = "Grid Data"
+this.toolbaritemvisible = true
+this.toolbaritemtext = "Grid Data"
+end on
+
+on m_item4.destroy
+call super::destroy
+end on
+
+type m_item5 from m_customer_order`m_item5 within m_reportstyle
+end type
+
+on m_item5.create
+call super::create
+end on
+
+on m_item5.destroy
+call super::destroy
+end on
+
+type m_step2 from m_customer_order`m_step2 within m_settings
+end type
+
+on m_step2.create
+call super::create
+end on
+
+on m_step2.destroy
+call super::destroy
+end on
+
+type m_autorefresh from m_customer_order`m_autorefresh within m_settings
+end type
+
+on m_autorefresh.create
+call super::create
+end on
+
+on m_autorefresh.destroy
+call super::destroy
+end on
+
+type m_step3 from m_customer_order`m_step3 within m_settings
+end type
+
+on m_step3.create
+call super::create
+end on
+
+on m_step3.destroy
+call super::destroy
+end on
+
+type m_reportoptions from m_customer_order`m_reportoptions within m_settings
+end type
+
+on m_reportoptions.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_reportoptions.destroy
+call super::destroy
+end on
+
+type m_customer from m_customer_order`m_customer within m_report_ordertype
+end type
+
+on m_customer.create
+call super::create
+end on
+
+on m_customer.destroy
+call super::destroy
+end on
+
+type m_newcurtomer from m_customer_order`m_newcurtomer within m_customer
+end type
+
+on m_newcurtomer.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_newcurtomer.destroy
+call super::destroy
+end on
+
+type m_customermaintenance from m_customer_order`m_customermaintenance within m_customer
+end type
+
+on m_customermaintenance.create
+call super::create
+end on
+
+on m_customermaintenance.destroy
+call super::destroy
+end on
+
+type m_99 from m_customer_order`m_99 within m_customer
+end type
+
+on m_99.create
+call super::create
+end on
+
+on m_99.destroy
+call super::destroy
+end on
+
+type m_accountsreceivable from m_customer_order`m_accountsreceivable within m_customer
+end type
+
+on m_accountsreceivable.create
+call super::create
+end on
+
+on m_accountsreceivable.destroy
+call super::destroy
+end on
+
+type m_order from m_customer_order`m_order within m_report_ordertype
+end type
+
+on m_order.create
+call super::create
+end on
+
+on m_order.destroy
+call super::destroy
+end on
+
+type m_neworder from m_customer_order`m_neworder within m_order
+end type
+
+on m_neworder.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_neworder.destroy
+call super::destroy
+end on
+
+type m_ordermaintencance from m_customer_order`m_ordermaintencance within m_order
+end type
+
+on m_ordermaintencance.create
+call super::create
+end on
+
+on m_ordermaintencance.destroy
+call super::destroy
+end on
+
+type m_3434 from m_customer_order`m_3434 within m_order
+end type
+
+on m_3434.create
+call super::create
+end on
+
+on m_3434.destroy
+call super::destroy
+end on
+
+type m_orderprocessing from m_customer_order`m_orderprocessing within m_order
+end type
+
+on m_orderprocessing.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_orderprocessing.destroy
+call super::destroy
+end on
+
+type m_ordershipment from m_customer_order`m_ordershipment within m_order
+end type
+
+on m_ordershipment.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_ordershipment.destroy
+call super::destroy
+end on
+
+type m_1 from m_customer_order`m_1 within m_report_ordertype
+end type
+
+on m_1.create
+call super::create
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_catalogmanager from m_customer_order`m_catalogmanager within m_1
+end type
+
+on m_catalogmanager.create
+call super::create
+end on
+
+on m_catalogmanager.destroy
+call super::destroy
+end on
+
+type m_categories from m_customer_order`m_categories within m_catalogmanager
+end type
+
+on m_categories.create
+call super::create
+end on
+
+on m_categories.destroy
+call super::destroy
+end on
+
+type m_products from m_customer_order`m_products within m_catalogmanager
+end type
+
+on m_products.create
+call super::create
+end on
+
+on m_products.destroy
+call super::destroy
+end on
+
+type m_4 from m_customer_order`m_4 within m_1
+end type
+
+on m_4.create
+call super::create
+end on
+
+on m_4.destroy
+call super::destroy
+end on
+
+type m_78987 from m_customer_order`m_78987 within m_1
+end type
+
+on m_78987.create
+call super::create
+end on
+
+on m_78987.destroy
+call super::destroy
+end on
+
+type m_3 from m_customer_order`m_3 within m_1
+end type
+
+on m_3.create
+call super::create
+end on
+
+on m_3.destroy
+call super::destroy
+end on
+
+type m_report1 from m_customer_order`m_report1 within m_report_ordertype
+end type
+
+on m_report1.create
+call super::create
+end on
+
+on m_report1.destroy
+call super::destroy
+end on
+
+type m_salesreports from m_customer_order`m_salesreports within m_report1
+end type
+
+on m_salesreports.create
+call super::create
+end on
+
+on m_salesreports.destroy
+call super::destroy
+end on
+
+type m_byordertype from m_customer_order`m_byordertype within m_salesreports
+end type
+
+on m_byordertype.create
+call super::create
+end on
+
+on m_byordertype.destroy
+call super::destroy
+end on
+
+type m_byproductcategory from m_customer_order`m_byproductcategory within m_salesreports
+end type
+
+on m_byproductcategory.create
+call super::create
+end on
+
+on m_byproductcategory.destroy
+call super::destroy
+end on
+
+type m_bycustomer from m_customer_order`m_bycustomer within m_salesreports
+end type
+
+on m_bycustomer.create
+call super::create
+end on
+
+on m_bycustomer.destroy
+call super::destroy
+end on
+
+type m_salessummary from m_customer_order`m_salessummary within m_report1
+end type
+
+on m_salessummary.create
+call super::create
+end on
+
+on m_salessummary.destroy
+call super::destroy
+end on
+
+type m_window from m_customer_order`m_window within m_report_ordertype
+end type
+
+on m_window.create
+call super::create
+end on
+
+on m_window.destroy
+call super::destroy
+end on
+
+type m_windowlist from m_customer_order`m_windowlist within m_window
+end type
+
+on m_windowlist.create
+call super::create
+end on
+
+on m_windowlist.destroy
+call super::destroy
+end on
+
+type m_help from m_customer_order`m_help within m_report_ordertype
+end type
+
+on m_help.create
+call super::create
+end on
+
+on m_help.destroy
+call super::destroy
+end on
+
+type m_about from m_customer_order`m_about within m_help
+end type
+
+on m_about.create
+call super::create
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+

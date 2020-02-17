@@ -1,0 +1,9 @@
+﻿$PBExportHeader$str_print.srs
+global type str_print from structure
+	string		s_data
+	string		s_psr_name
+	string		s_Dataobject
+	datawindow		dw_data
+	long		l_data
+end type
+

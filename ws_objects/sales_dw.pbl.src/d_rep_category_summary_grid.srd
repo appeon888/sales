@@ -1,0 +1,38 @@
+﻿$PBExportHeader$d_rep_category_summary_grid.srd
+$PBExportComments$Product category summary ,grid
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=120 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=t_prod_category_fcategory dbname="t_prod_category.fcategory" )
+ column=(type=char(20) updatewhereclause=yes name=t_prod_category_fcatename dbname="t_prod_category.fcatename" )
+ column=(type=decimal(2) updatewhereclause=yes name=famount dbname="famount" )
+ retrieve="  SELECT ~"t_prod_category~".~"fcategory~",   
+         ~"t_prod_category~".~"fcatename~",   
+         sum(~"t_orders_items~".~"famount~" ) as ~"famount~" 
+    FROM ~"t_orders_items~",   
+         ~"t_prod_category~",   
+         ~"t_products~"  ,
+			~"t_orders~"
+   WHERE ( ~"t_prod_category~".~"fcategory~" = ~"t_products~".~"fcategory~" ) and  
+         ( ~"t_orders_items~".~"fsku~" = ~"t_products~".~"fsku~" )  AND
+			( ~"t_orders~".~"forderno~" = ~"t_orders_items~".~"forderno~") AND
+			( ~"t_orders~".~"forderdate~" between :ad_from and :ad_to)
+ group by ~"t_prod_category~".~"fcategory~",   
+         ~"t_prod_category~".~"fcatename~"
+ORDER BY ~"t_prod_category~".~"fcategory~",   
+         ~"t_prod_category~".~"fcatename~"" arguments=(("ad_from", date),("ad_to", date)) )
+text(band=header alignment="2" text="Category No" border="0" color="33554432" x="197" y="24" height="52" width="352" html.valueishtml="0"  name=t_prod_category_fcategory_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Category Name" border="0" color="33554432" x="558" y="24" height="52" width="489" html.valueishtml="0"  name=t_prod_category_fcatename_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Amount" border="0" color="33554432" x="1056" y="24" height="52" width="475" html.valueishtml="0"  name=famount_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="No" border="0" color="33554432" x="9" y="24" height="52" width="178" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="197" y="8" height="64" width="352" format="[general]" html.valueishtml="0"  name=t_prod_category_fcategory  tag="Category" visible="1" edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="558" y="8" height="64" width="489" format="[general]" html.valueishtml="0"  name=t_prod_category_fcatename  tag="Category Name" visible="1" edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="1056" y="8" height="64" width="475" format="$###,###,##0.00" html.valueishtml="0"  name=famount visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="getrow()"border="0" color="33554432" x="9" y="8" height="64" width="178" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(famount for all)"border="0" color="33554432" x="1056" y="12" height="52" width="475" format="$###,###,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="2" text="Total" border="0" color="33554432" x="9" y="16" height="52" width="178" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

@@ -1,0 +1,57 @@
+﻿$PBExportHeader$d_rep_sales_summary_month_cross.srd
+$PBExportComments$Sales Summary by month,Corsstab
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=112 color="536870912" )
+header[2](height=112 color="536870912" )
+summary(height=84 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=t_customers_fcustno dbname="t_customers_fcustno" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_flastname dbname="t_customers_flastname" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_ffirstname dbname="t_customers_ffirstname" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_fm dbname="t_customers_fm" values="Mr.	Mr./Mrs.	Mrs./" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_fpaymentdue dbname="t_customers_fpaymentdue" values="	1/	0" )
+ column=(type=number updatewhereclause=yes name=famount dbname="famount" )
+ retrieve="  SELECT ~"t_customers~".~"fcustno~",   
+         ~"t_customers~".~"flastname~",   
+         ~"t_customers~".~"ffirstname~",   
+         ~"t_customers~".~"fm~",   
+         ~"t_customers~".~"fpaymentdue~",   
+         sum(~"t_orders~".~"famount~") as ~"famount~",   
+			upper(substring(convert(varchar(12),~"forderdate~",111),1,7)) as ~"fmonth~"  
+    FROM ~"t_customers~",   
+         ~"t_orders~"  
+   WHERE ( ~"t_customers~".~"fcustno~" = ~"t_orders~".~"fcustno~" ) and  
+         ( ( ~"t_orders~".~"forderdate~" between :ad_from and :as_to )   
+         )   
+Group BY ~"t_customers~".~"fcustno~" ,   
+         ~"t_customers~".~"flastname~" ,   
+         ~"t_customers~".~"ffirstname~" ,   
+         ~"t_customers~".~"fm~" ,   
+         ~"t_customers~".~"fpaymentdue~" ,
+   		~"t_orders~".~"forderdate~"
+ORDER BY ~"t_customers~".~"fcustno~" ASC,~"t_orders~".~"forderdate~" ASC
+" arguments=(("ad_from", date),("as_to", date))  sort="t_customers_fcustno A t_customers_flastname A t_customers_ffirstname A t_customers_fm A t_customers_fpaymentdue A " )
+text(band=header[2] alignment="2" text="Customer ID" border="0" color="33554432" x="9" y="4" height="104" width="329" html.valueishtml="0"  name=t_customers_fcustno_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="PaymentDue" border="0" color="33554432" x="1248" y="4" height="104" width="206" html.valueishtml="0"  name=t_customers_fpaymentdue_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="Last Name" border="0" color="33554432" x="347" y="32" height="52" width="357" html.valueishtml="0"  name=t_customers_flastname_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="First Name" border="0" color="33554432" x="713" y="32" height="52" width="357" html.valueishtml="0"  name=t_customers_ffirstname_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="Title" border="0" color="33554432" x="1079" y="32" height="52" width="160" html.valueishtml="0"  name=t_customers_fm_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="@fmonth" border="0" color="33554432" x="1463" y="32" height="52" width="325" html.valueishtml="0"  name=famount_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="Grand Total " border="0" color="33554432" x="1797" y="32" height="52" width="393" html.valueishtml="0"  name=grand_sum_famount_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="347" y="4" height="64" width="357" format="[general]" html.valueishtml="0"  name=t_customers_flastname visible="1" edit.limit=25 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="713" y="4" height="64" width="357" format="[general]" html.valueishtml="0"  name=t_customers_ffirstname visible="1" edit.limit=25 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="1079" y="4" height="64" width="160" format="[general]" html.valueishtml="0"  name=t_customers_fm visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.autohscroll=yes ddlb.vscrollbar=yes ddlb.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="33554432" x="1248" y="4" height="64" width="206" format="[general]" html.valueishtml="0"  name=t_customers_fpaymentdue visible="1" edit.name="cbx_paymentdue" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="64" width="329" format="[general]" html.valueishtml="0"  name=t_customers_fcustno visible="1" editmask.autoskip=yes editmask.mask="#-##-#" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="33554432" x="1463" y="4" height="64" width="325" format="$###,##0.00" html.valueishtml="0"  name=famount visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.imemode=0 crosstab.repeat=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="crosstabsum(1)"border="0" color="33554432" x="1797" y="4" height="64" width="393" format="$###,###,##0.00" html.valueishtml="0"  name=grand_sum_famount visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="~"Grand Total~""border="0" color="33554432" x="9" y="4" height="64" width="329" format="[general]" html.valueishtml="0"  name=compute_13 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(famount for all )"border="0" color="33554432" x="1463" y="4" height="64" width="325" format="$###,###,##0.00" html.valueishtml="0"  name=compute_14 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(grand_sum_famount for all )"border="0" color="33554432" x="1797" y="4" height="64" width="393" format="$###,###,##0.00" html.valueishtml="0"  name=compute_15 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="Customers Sales Summary(by month)" border="0" color="33554432" x="105" y="4" height="96" width="2816" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "fmonth" rows = "t_customers_fcustno, t_customers_flastname, t_customers_ffirstname, t_customers_fm, t_customers_fpaymentdue" values = "sum(famount for crosstab)" sourcenames = "t_customers_fcustno, t_customers_flastname, t_customers_ffirstname, t_customers_fm, t_customers_fpaymentdue, famount, fmonth")
+sparse(names="t_customers_fcustno	t_customers_flastname	t_customers_ffirstname	t_customers_fm")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

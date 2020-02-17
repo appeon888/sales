@@ -1,0 +1,58 @@
+﻿$PBExportHeader$f_sort_by_head.srf
+global type f_sort_by_head from function_object
+end type
+
+forward prototypes
+global function string f_sort_by_head (datawindow adw_1, string as_col, string as_last_col, string as_sort_type)
+end prototypes
+
+global function string f_sort_by_head (datawindow adw_1, string as_col, string as_last_col, string as_sort_type);//====================================================================
+// Function: f_sort_by_head()
+//--------------------------------------------------------------------
+// Description: Sort  by  clicking  the  cloumn head
+//--------------------------------------------------------------------
+// Arguments: 
+//		value	datawindow	adw_1       		
+//		value	string    	as_col      		
+//		value	string    	as_last_col 		
+//		value	string    	as_sort_type		
+//--------------------------------------------------------------------
+// Returns: string
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+String	 ls_Sort
+
+If Right(as_col,2) <> '_t' Then Return ''
+
+as_col = Left(as_col,Len(as_col) - 2)
+
+//If user clicks the same column header more than one times
+If as_col = as_last_col Then
+	//Change sort type
+	If as_sort_type = 'A' Then
+		as_sort_type = 'D'
+	Else
+		as_sort_type = 'A'
+	End If
+Else //First click or click another column header 
+	as_last_col = as_col
+	as_sort_type = 'A'
+End If
+
+//Set sort expression
+ls_Sort = as_col +" " + as_sort_type
+
+adw_1.SetSort(ls_Sort)
+adw_1.Sort()
+
+Return   as_last_col  + '$'  + as_sort_type
+
+end function
+

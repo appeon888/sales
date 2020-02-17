@@ -1,0 +1,81 @@
+﻿$PBExportHeader$appeongetremainingdays.srf
+global type appeongetremainingdays from function_object
+end type
+
+forward prototypes
+global function long appeongetremainingdays (string as_type, ref string as_error)
+end prototypes
+
+global function long appeongetremainingdays (string as_type, ref string as_error);//==============================================================================
+// 
+// Copyright ? 2001-2010 Appeon, Inc. and its subsidiaries. All rights reserved.
+// 
+//------------------------------------------------------------------------------
+// Function: appeongetremainingdays()
+//------------------------------------------------------------------------------
+// Description: 
+//              obtain the remaining day(s) of license or technical support
+//      
+// Arguments:
+//               string		as_type
+//                    license  -- obtain the remaining day(s) of license
+//                  	support -- obtain the remaining day(s) of technical support
+//          ref string      as_error
+//                    When the returned value of the function >= 0, return an empty string. When the returned value of the function = -1, return the error message returned from Appeon Server.
+//
+// Returns: 
+//                  >0 --  remaining day(s)
+//                    0 --  no expiration date
+//                   -1 --  license or technical support has expired, Appeon Server has an exception, or parameter is invalid.
+//
+//------------------------------------------------------------------------------
+// Author:         APPEON            Date: 2010-07
+//------------------------------------------------------------------------------
+// Revision History: 
+//                                  1.0   Initial version
+//==============================================================================
+
+long ll_remainingdays
+string ls_info,ls_attribute
+AppeonExtFuncs funs
+
+as_error = ""
+ll_remainingdays = 0
+
+IF appeongetclienttype() = "WEB" THEN
+	
+	CHOOSE CASE as_type		
+		CASE "license"
+			ls_attribute = "1-remaining-days"
+		CASE "support"
+			ls_attribute = "2-remaining-days"
+		CASE ELSE
+			as_error="Parameter is invalid."
+			RETURN  -1
+      END CHOOSE		
+	
+	ls_info = appeongethttpinfo(ls_attribute)
+	
+	funs = CREATE AppeonExtFuncs
+	
+	ls_info = trim(funs.Of_GetHttpInfo(ls_attribute))
+	
+	IF ls_info="*" THEN
+		 ll_remainingdays = 0	 
+	ELSEIF IsNumber ( ls_info ) THEN
+		 ll_remainingdays = LONG(ls_info)	 
+	ELSE	
+		 ll_remainingdays = -1
+		 as_error = ls_info
+	END IF
+	
+	DESTROY funs
+
+END IF
+
+RETURN ll_remainingdays
+
+
+
+end function
+

@@ -1,0 +1,45 @@
+﻿$PBExportHeader$appeonswitchrealtimecalc.srf
+global type appeonswitchrealtimecalc from function_object
+end type
+
+forward prototypes
+global function integer appeonswitchrealtimecalc (powerobject adw, integer para)
+end prototypes
+
+global function integer appeonswitchrealtimecalc (powerobject adw, integer para);//==============================================================================
+// 
+// Copyright ? 2001-2011 Appeon, Inc. and its subsidiaries. All rights reserved.
+// 
+//------------------------------------------------------------------------------
+// Function: AppeonSwitchRealTimeCalc()
+//------------------------------------------------------------------------------
+// Description: Configure realtime to calc the datawindow expression or not 
+//					
+//	
+// Arguments:
+//				powerobject: datawindow/datastore/datawindowchild reference;
+//				integer: 0 - default value, need to realtime calc;
+//						   1 - needn't to realtime calc;
+//	
+// Returns:  integer
+//------------------------------------------------------------------------------
+// Author:	APPEON		Date: 2011-05-17
+//------------------------------------------------------------------------------
+// Revision History: 
+//				1.0   Initial version
+//==============================================================================
+
+integer ll_value
+
+appeonextfuncs lnv_extfuncs;
+lnv_extfuncs = create appeonextfuncs
+
+ll_value = lnv_extfuncs.of_switchrealtimecalc(adw, para)
+
+destroy lnv_extfuncs;
+
+return ll_value;
+
+
+end function
+

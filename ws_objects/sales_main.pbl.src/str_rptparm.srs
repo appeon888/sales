@@ -1,0 +1,6 @@
+﻿$PBExportHeader$str_rptparm.srs
+global type str_rptparm from structure
+	string		ftitle
+	string		fdataobject
+end type
+

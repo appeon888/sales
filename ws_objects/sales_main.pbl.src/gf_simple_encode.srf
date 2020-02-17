@@ -1,0 +1,49 @@
+﻿$PBExportHeader$gf_simple_encode.srf
+global type gf_simple_encode from function_object
+end type
+
+forward prototypes
+global function string gf_simple_encode (string as_original, string as_encodetype)
+end prototypes
+
+global function string gf_simple_encode (string as_original, string as_encodetype);//====================================================================
+// Function: gf_simple_encode()
+//--------------------------------------------------------------------
+// Description: encrypt and decrypt:as_encodetype:1-->encrypt;0-->decrypt
+//--------------------------------------------------------------------
+// Arguments: 
+//		value	string	as_original  		
+//		value	string	as_encodetype		
+//--------------------------------------------------------------------
+// Returns: string
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+Long     ll_Len,ll
+String   ls_code
+Char     lc_char
+
+ll_Len = Len(as_original)
+
+If as_encodetype = '1' Then
+	For ll = 1 To ll_Len
+		ls_code += String(Asc(Mid(as_original,ll,1))+50,'000')
+	Next
+Else
+	For ll = 1 To ll_Len Step 3
+		lc_char =  Char(Integer(Mid(as_original,ll,3)) - 50)
+		ls_code += String(lc_char)
+	Next
+End If
+
+Return ls_code
+
+
+end function
+

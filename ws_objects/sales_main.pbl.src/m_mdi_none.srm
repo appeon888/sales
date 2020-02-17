@@ -1,0 +1,71 @@
+﻿$PBExportHeader$m_mdi_none.srm
+forward
+global type m_mdi_none from menu
+end type
+type m_test from menu within m_mdi_none
+end type
+global type m_mdi_none from menu
+m_test m_test
+end type
+end forward
+
+global type m_mdi_none from menu
+m_test m_test
+end type
+global m_mdi_none m_mdi_none
+
+on m_mdi_none.create
+m_mdi_none=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_test=create m_test
+this.Item[UpperBound(this.Item)+1]=this.m_test
+end on
+
+on m_mdi_none.destroy
+call super::destroy
+destroy(this.m_test)
+end on
+
+type m_test from menu within m_mdi_none
+end type
+
+on m_test.create
+call super::create
+this.visible = false
+this.text = "Test"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_test.destroy
+call super::destroy
+end on
+

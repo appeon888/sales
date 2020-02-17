@@ -1,0 +1,19 @@
+﻿<RibbonBar Font="FaceName:Arial; TextSize:8; FontCharSet:ansi!" BuiltinTheme="1">
+  <RibbonItems>
+    <!--add the toolbar categories-->
+    <Categories>
+      <Category Text="Operation" Tag="CategoryOperation" Enabled="true" Visible="true" >
+        <Panel Text="Board" Tag="Board" PictureName=".\pictrue\orderview.png" Enabled="true" Visible="true">          
+          <LargeButton Text="Save Data" Tag="SaveData" PictureName="SaveBig!" Clicked="ue_SaveData" PowerTipText="Save Data" PowerTipDescription="Save the specified DataWindow data" Shortcut="ctrl+S" Checked="false" DefaultCommand="false" Enabled="true" Selected="" Visible="true"/>
+          <LargeButton Text="Close window" Tag="OrderView" PictureName=".\picture\close.png" Clicked="ue_orderview" Shortcut="ctrl+shift+O" Checked="false"  DefaultCommand="false" Enabled="true" PowerTipDescription="" PowerTipText="" Selected="" Visible="true" />
+        </Panel>
+      </Category>
+    </Categories>
+    <!--add tab buttons that display on the right corner of the toolbar-->
+    <TabButtons>
+      <TabButton Text="Up" PictureName=".\picture\up.png" Clicked="ue_up" />
+      <TabButton Text="About" PictureName=".\picture\help.png" Clicked="ue_about" />
+      <TabButton Text="Close" PictureName=".\picture\close12.png" Clicked="ue_close"  Shortcut="ctrl+E"/>
+    </TabButtons>
+  </RibbonItems>
+</RibbonBar>

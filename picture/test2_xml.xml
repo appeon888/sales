@@ -1,0 +1,49 @@
+<RibbonBar BuiltinTheme="0" Font="FaceName:Tahoma; TextSize:12">
+  <RibbonItems>
+    <Categories>
+      <Category Text="test" Enabled="true" Tag="">
+        <Panel Text="panel Visible True" Enabled="true" Tag="">
+          <SmallButton Text="" PictureName="AccountingNumberFormatSmall!" Clicked="">
+            <Menu>
+              <Item Text="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.pngD:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.pngD:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.pngviewproductcatalogviewproductcatalogviewproductcatalogviewproductcatalog" PictureName="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.png" Clicked="" />
+              <Item Text="" PictureName="" Checked="false" Enabled="true" Tag="" Type="1" Selected=""/>
+              <Item Text="" PictureName="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\2dbarstacked.png" Checked="false" Enabled="true" Tag="" Type="0" Selected=""/>
+              <Item Text="" PictureName="" Checked="false" Enabled="true" Tag="" Type="1" Selected=""/>
+              <Item Text="" PictureName="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\viewproductcatalog.png" Checked="false" Enabled="true" Tag="" Type="0" Selected=""/>
+              <Item Text="" PictureName="" Checked="false" Enabled="true" Tag="" Type="1" Selected=""/>
+            </Menu>
+          </SmallButton>
+        </Panel>
+        <Panel Text="panel Visible false" PictureName="" Enabled="true" Tag=""  Visible="false">
+          <SmallButton Text="" PictureName="AccountingNumberFormatSmall!" Clicked="">
+            <Menu>
+              <Item Text="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.pngD:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.pngD:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.pngviewproductcatalogviewproductcatalogviewproductcatalogviewproductcatalog" PictureName="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\NativePdfBig.png" Clicked="" />
+              <Item Text="" PictureName="" Checked="false" Enabled="true" Tag="" Type="1" Selected=""/>
+              <Item Text="" PictureName="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\2dbarstacked.png" Checked="false" Enabled="true" Tag="" Type="0" Selected=""/>
+              <Item Text="" PictureName="" Checked="false" Enabled="true" Tag="" Type="1" Selected=""/>
+              <Item Text="" PictureName="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\picture\viewproductcatalog.png" Checked="false" Enabled="true" Tag="" Type="0" Selected=""/>
+              <Item Text="" PictureName="" Checked="false" Enabled="true" Tag="" Type="1" Selected=""/>
+            </Menu>
+          </SmallButton>
+        </Panel>
+      </Category>
+      <Category Text="D:\WorkCase\ribbonbar\SalesApplicationDemo4webbrowser\theme190\Flat Design Silver\preview.bmp" Enabled="true" Tag="">
+      </Category>
+    </Categories>
+    <ApplicationButton Text="application" Enabled="true" Tag="">
+      <ApplicationMenu>
+        <Master>
+          <Item Text="test Master" PictureName="" Checked="false" Enabled="true" Tag="" Type="0" Selected="">
+            <Item Text="Test Master Item" PictureName="" Checked="false" Enabled="true" Tag="" Type="0" Clicked="" Selected="" />
+          </Item>
+        </Master>
+        <Recent Title="test">
+          <Item Text="test" Checked="false" Enabled="true" Tag="" Type="2" Clicked="" Selected="" />
+        </Recent>
+      </ApplicationMenu>
+    </ApplicationButton>
+    <TabButtons>
+      <TabButton Text="" PictureName="" Checked="false" DefaultCommand="true" Enabled="true" PowerTipText="" PowerTipDescription="" Tag="" Clicked="" Selected="" />
+    </TabButtons>
+  </RibbonItems>
+</RibbonBar>

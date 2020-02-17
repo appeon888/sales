@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_dddw_customers.srd
+$PBExportComments$Accounts Receivable ---Tabular
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=100 color="31059397" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=fcustno dbname="t_customers.fcustno" )
+ column=(type=char(51) updatewhereclause=yes name=fcustname dbname="fcustname" )
+ column=(type=char(4) updatewhereclause=yes name=fm dbname="t_customers.fm" values="Mr.	Mr./Mrs.	Mrs./Ms.	Ms./Miss	Miss/Dr.	Dr./" )
+ column=(type=char(25) updatewhereclause=yes name=flastname dbname="t_customers.flastname" )
+ column=(type=char(25) updatewhereclause=yes name=ffirstname dbname="t_customers.ffirstname" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"t_customers~" ) COLUMN(NAME=~"t_customers.fcustno~") COMPUTE(NAME=~"~~~"t_customers~~~".~~~"flastname~~~" +'-'+~~~"t_customers~~~".~~~"ffirstname~~~" as FCustName~") COLUMN(NAME=~"t_customers.fm~") COLUMN(NAME=~"t_customers.flastname~") COLUMN(NAME=~"t_customers.ffirstname~")) ORDER(NAME=~"t_customers.fcustno~" ASC=yes ) " )
+text(band=header alignment="2" text="Customer ID" border="0" color="33554432" x="9" y="12" height="52" width="389" html.valueishtml="0"  name=fcustno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Customer Name" border="0" color="33554432" x="407" y="12" height="52" width="576" html.valueishtml="0"  name=fcustname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="33554432" x="992" y="12" height="52" width="197" html.valueishtml="0"  name=fm_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="8" height="76" width="389" format="[general]" html.valueishtml="0"  name=fcustno  tag="Customer No" visible="1" edit.name="em_custno" editmask.autoskip=yes editmask.useformat=yes editmask.mask="#-##-#" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="407" y="8" height="76" width="576" format="[general]" html.valueishtml="0"  name=fcustname visible="1" edit.limit=51 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="992" y="8" height="76" width="197" format="[general]" html.valueishtml="0"  name=fm visible="1" edit.name="ddlb_title" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

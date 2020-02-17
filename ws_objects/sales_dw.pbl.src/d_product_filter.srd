@@ -1,0 +1,29 @@
+﻿$PBExportHeader$d_product_filter.srd
+$PBExportComments$Product Filter Settings
+release 8;
+datawindow(units=0 timer_interval=0 color=32039904 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=8 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=280 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=fcategory dbname="t_products.fcategory" )
+ column=(type=char(20) updatewhereclause=yes name=fproname dbname="t_products.fproname" )
+ column=(type=char(10) updatewhereclause=yes name=fsku dbname="t_products.fsku" )
+ column=(type=decimal(4) updatewhereclause=yes name=funit_price dbname="t_products.funit_price" )
+ column=(type=char(2) updatewhereclause=yes name=foperator dbname="foperator" initial="=" values=">	>/<	</=	=/>=	>=/<=	<=/<>	<>/" )
+ retrieve="SELECT     ~"t_products~".~"fcategory~" ,
+           ~"t_products~".~"fproname~" ,
+           ~"t_products~".~"fsku~" ,
+           ~"t_products~".~"funit_price~" ,
+           foperator='>='    
+        FROM ~"t_products~"    " )
+text(band=detail alignment="1" text="Category:" border="0" color="33554432" x="78" y="168" height="64" width="265" html.valueishtml="0"  name=fcategory_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Unit Price:" border="0" color="33554432" x="1029" y="168" height="64" width="274" html.valueishtml="0"  name=funit_price_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=50 border="2" color="33554432" x="1330" y="152" height="96" width="160" format="[general]" html.valueishtml="0"  name=foperator visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes ddlb.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="2" color="33554432" x="1513" y="152" height="96" width="430" format="[general]" html.valueishtml="0"  name=funit_price  tag="Unit Price" visible="1" edit.name="em_unitprice" editmask.autoskip=yes editmask.useformat=yes editmask.mask="###,##0.00" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="SKU:" border="0" color="33554432" x="18" y="36" height="64" width="325" html.valueishtml="0"  name=fsku_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Product Name:" border="0" color="33554432" x="891" y="36" height="64" width="407" html.valueishtml="0"  name=fproname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="33554432" x="1330" y="20" height="96" width="613" format="[general]" html.valueishtml="0"  name=fproname  tag="Product Name" visible="1" edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=30 border="2" color="33554432" x="361" y="152" height="96" width="311" format="[general]" html.valueishtml="0"  name=fcategory visible="1" dddw.name=dddw_prod_category dddw.displaycolumn=fcatename dddw.datacolumn=fcategory dddw.percentwidth=250 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.imemode=0 dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="33554432" x="361" y="20" height="96" width="311" format="[general]" html.valueishtml="0"  name=fsku  tag="SKU" visible="1" editmask.mask="a-###-##" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

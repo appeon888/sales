@@ -1,0 +1,17 @@
+﻿$PBExportHeader$dw_unassigned_group.srd
+$PBExportComments$User unassigned group
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes key=yes name=fgroupno dbname="t_groups.fgroupno" )
+ retrieve="  SELECT ~"t_groups~".~"fgroupno~"
+    FROM ~"t_groups~"  
+where  ~"t_groups~".~"fgroupno~" not in (select distinct ~"fgroupno~" 
+														from ~"t_usergroup~" 
+														where ~"fuserno~"=:as_userno)
+" update="t_groups" updatewhere=1 updatekeyinplace=no arguments=(("as_userNo", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="20" height="76" width="1275" format="[general]" html.valueishtml="0"  name=fgroupno visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

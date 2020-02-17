@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_dddw_states.srd
+$PBExportComments$Grid:  State ID, State Name, Country
+release 8;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=100 color="31059397" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=state_id dbname="t_states.state_id" )
+ column=(type=char(24) updatewhereclause=yes name=state_name dbname="t_states.state_name" )
+ column=(type=char(3) updatewhereclause=yes name=country dbname="t_states.country" )
+ retrieve="PBSELECT(TABLE(NAME=~"t_states~" ) COLUMN(NAME=~"t_states.state_id~") COLUMN(NAME=~"t_states.state_name~") COLUMN(NAME=~"t_states.country~")) " )
+text(band=header alignment="2" text="Country" border="0" color="0" x="663" y="16" height="72" width="283" html.valueishtml="0"  name=country_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="ID" border="0" color="0" x="9" y="16" height="72" width="137" html.valueishtml="0"  name=state_id_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Name" border="0" color="0" x="155" y="16" height="72" width="498" html.valueishtml="0"  name=state_name_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="12" height="72" width="137" format="[general]" html.valueishtml="0"  name=state_id  tag="State Identification Code" visible="1" edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="155" y="12" height="72" width="498" format="[general]" html.valueishtml="0"  name=state_name  tag="Name of the state" visible="1" edit.limit=24 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="663" y="12" height="72" width="283" format="[general]" html.valueishtml="0"  name=country  tag="Country the state is located in" visible="1" edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

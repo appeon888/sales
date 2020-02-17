@@ -1,0 +1,44 @@
+﻿$PBExportHeader$appeonprint2file.srf
+global type appeonprint2file from function_object
+end type
+
+forward prototypes
+global function long appeonprint2file (powerobject adw, string asoutpath, string asoutname, long alouttype)
+end prototypes
+
+global function long appeonprint2file (powerobject adw, string asoutpath, string asoutname, long alouttype);//==============================================================================
+// 
+// Copyright ? 2009-2012 Appeon, Inc. and its subsidiaries. All rights reserved.
+// 
+//------------------------------------------------------------------------------
+// Function: appeonprint2file()
+//------------------------------------------------------------------------------
+// Description: 
+// 				Prints the specified DataWindow/DataStore as a file on Client.
+//	
+// Arguments: 
+//		powerobject	 adw - datawindow/datastore that will print
+//      string asoutpath   - output directory
+//      string asoutname - output name
+//      long alouttype      - output file type, currently can support 3 types:
+//                                   1: BMP, 2: JPG, 3:GIF
+//	
+// Returns:  integer 1 when sucessful otherwise less than zero
+//------------------------------------------------------------------------------
+// Author:	APPEON		Date: 2009-08
+//------------------------------------------------------------------------------
+// Revision History: 
+//				1.0   Initial version
+//==============================================================================
+
+long lRet
+AppeonExtFuncs funs
+funs = Create AppeonExtFuncs
+
+lRet = funs.of_print2file(adw, asoutpath, asoutname, alouttype)
+
+Destroy funs
+Return lRet
+
+end function
+

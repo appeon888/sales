@@ -1,0 +1,24 @@
+﻿$PBExportHeader$d_user_settings.srd
+$PBExportComments$User Settings
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(100) updatewhereclause=yes name=fparam_name dbname="t_user_settings.fparam_name" )
+ column=(type=char(100) updatewhereclause=yes name=fparam_value dbname="t_user_settings.fparam_value" )
+ retrieve="  SELECT ~"t_user_settings~".~"fparam_name~",   
+         ~"t_user_settings~".~"fparam_value~"  
+    FROM ~"t_user_settings~"  
+   WHERE ( ~"t_user_settings~".~"fuserno~" = :as_userno ) AND  
+         (~"t_user_settings~".~"fparam_name~" like :as_paramname||'%' OR  
+         ~"t_user_settings~".~"fparam_name~" like 'Report Options%')   
+            
+" arguments=(("as_userno", string),("as_paramname", string)) )
+text(band=header alignment="2" text="Fparam Name" border="0" color="33554432" x="9" y="8" height="64" width="1458" html.valueishtml="0"  name=fparam_name_t visible="1"  font.face="System" font.height="-12" font.weight="400"  font.family="2" font.pitch="1" font.charset="134" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fparam Value" border="0" color="33554432" x="1477" y="8" height="64" width="987" html.valueishtml="0"  name=fparam_value_t visible="1"  font.face="System" font.height="-12" font.weight="400"  font.family="2" font.pitch="1" font.charset="134" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="8" height="64" width="1458" format="[general]" html.valueishtml="0"  name=fparam_name visible="1" edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="System" font.height="-12" font.weight="400"  font.family="2" font.pitch="1" font.charset="134" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="1477" y="8" height="64" width="987" format="[general]" html.valueishtml="0"  name=fparam_value visible="1" edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="System" font.height="-12" font.weight="400"  font.family="2" font.pitch="1" font.charset="134" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

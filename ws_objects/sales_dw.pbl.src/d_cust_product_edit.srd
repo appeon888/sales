@@ -1,0 +1,47 @@
+﻿$PBExportHeader$d_cust_product_edit.srd
+release 8;
+datawindow(units=0 timer_interval=0 color=32039904 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=24 color="536870912" )
+detail(height=672 color="536870912" )
+table(column=(type=char(12) update=yes updatewhereclause=yes key=yes name=forderno dbname="t_orders_items.forderno" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=flineid dbname="t_orders_items.flineid" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=fsku dbname="t_orders_items.fsku" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=fquantity dbname="t_orders_items.fquantity" )
+ column=(type=decimal(4) update=yes updatewhereclause=yes name=funit_price dbname="t_orders_items.funit_price" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=famount dbname="t_orders_items.famount" )
+ column=(type=date update=yes updatewhereclause=yes name=fship_date dbname="t_orders_items.fship_date" )
+ column=(type=char(10) updatewhereclause=yes name=t_products_fcategory dbname="t_products.fcategory" )
+ column=(type=char(20) updatewhereclause=yes name=fproname dbname="t_products.fproname" )
+ column=(type=char(255) updatewhereclause=yes name=t_products_fdescription dbname="t_products.fdescription" )
+ retrieve="SELECT  ~"t_orders_items~".~"forderno~" ,
+           ~"t_orders_items~".~"flineid~" ,
+           ~"t_orders_items~".~"fsku~" ,
+           ~"t_orders_items~".~"fquantity~" ,
+           ~"t_orders_items~".~"funit_price~" ,
+           ~"t_orders_items~".~"famount~" ,
+           ~"t_orders_items~".~"fship_date~" ,
+           ~"t_products~".~"fcategory~" ,
+           ~"t_products~".~"fproname~" ,
+           ~"t_products~".~"fdescription~"     
+        FROM ~"t_orders_items~" ,
+           ~"t_products~"     
+        WHERE ( ~"t_orders_items~".~"fsku~" = ~"t_products~".~"fsku~" ) and          ( ( ~"t_orders_items~".~"forderno~" = :as_orderNo ) And          ( ~"t_orders_items~".~"flineid~" = :ai_lineId ) )  " update="t_orders_items" updatewhere=1 updatekeyinplace=yes arguments=(("as_orderNo", string),("ai_lineId", number)) )
+text(band=detail alignment="1" text="SKU:" border="0" color="33554432" x="160" y="36" height="64" width="251" html.valueishtml="0"  name=fsku_t visible="1"  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Product Name:" border="0" color="33554432" x="5" y="152" height="64" width="407" html.valueishtml="0"  name=t_2 visible="1"  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Unit Price:" border="0" color="33554432" x="137" y="276" height="64" width="274" html.valueishtml="0"  name=funit_price_t visible="1"  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Description:" border="0" color="33554432" x="87" y="392" height="64" width="325" html.valueishtml="0"  name=famount_t visible="1"  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="2" color="33554432" x="434" y="392" height="208" width="1687" format="[general]" html.valueishtml="0"  name=t_products_fdescription visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32039904" )
+text(band=detail alignment="0" text="*" border="0" color="16711680" x="1093" y="36" height="64" width="32" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="*" border="0" color="16711680" x="1093" y="152" height="64" width="32" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="*" border="0" color="16711680" x="1093" y="276" height="64" width="32" html.valueishtml="0"  name=t_6 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="33554432" x="434" y="28" height="92" width="626" format="[general]" html.valueishtml="0"  name=fsku  tag="SKU" visible="1" edit.name="em_sku" editmask.autoskip=yes editmask.useformat=yes editmask.mask="a-###-##" editmask.imemode=0 editmask.focusrectangle=no  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=20 border="2" color="33554432" x="434" y="144" height="92" width="626" format="[general]" html.valueishtml="0"  name=fproname visible="1" dddw.name=d_dddw_products dddw.displaycolumn=fproname dddw.datacolumn=fproname dddw.percentwidth=120 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.imemode=0 dddw.hscrollbar=yes dddw.vscrollbar=yes  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=30 border="2" color="33554432" x="434" y="268" height="92" width="626" format="$###,##0.00" html.valueishtml="0"  name=funit_price  tag="Unit Price" visible="1" edit.name="em_unitprice" editmask.autoskip=yes editmask.useformat=yes editmask.mask="###,##0.00" editmask.imemode=0 editmask.focusrectangle=no  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="2" color="33554432" x="1490" y="268" height="92" width="626" format="###,##0" html.valueishtml="0"  name=fquantity  tag="Quantity" visible="1" edit.name="em_amount" editmask.autoskip=yes editmask.useformat=yes editmask.mask="###,##0" editmask.imemode=0 editmask.focusrectangle=no  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Category:" border="0" color="33554432" x="1193" y="152" height="64" width="265" html.valueishtml="0"  name=t_1 visible="1"  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Quantity:" border="0" color="33554432" x="1225" y="276" height="64" width="233" html.valueishtml="0"  name=fquantity_t visible="1"  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="*" border="0" color="16711680" x="2139" y="276" height="64" width="32" html.valueishtml="0"  name=t_5 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="2" color="33554432" x="1490" y="144" height="92" width="626" format="[general]" html.valueishtml="0"  name=t_products_fcategory visible="1" dddw.name=dddw_prod_category dddw.displaycolumn=fcatename dddw.datacolumn=fcategory dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.imemode=0  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32039904" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

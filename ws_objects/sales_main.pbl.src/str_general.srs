@@ -1,0 +1,10 @@
+﻿$PBExportHeader$str_general.srs
+global type str_general from structure
+	string		faction
+	string		fcustno
+	string		forderno
+	string		fsku
+	long		flineid
+	string		fstrparm[]
+end type
+

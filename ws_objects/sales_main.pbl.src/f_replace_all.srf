@@ -1,0 +1,43 @@
+﻿$PBExportHeader$f_replace_all.srf
+global type f_replace_all from function_object
+end type
+
+forward prototypes
+global function string f_replace_all (string as_original, string as_find, string as_replace)
+end prototypes
+
+global function string f_replace_all (string as_original, string as_find, string as_replace);//====================================================================
+// Function: f_replace_all()
+//--------------------------------------------------------------------
+// Description: Replace all the as_find  with  as_replace  in as_original
+//--------------------------------------------------------------------
+// Arguments: 
+//		value	string	as_original		
+//		value	string	as_find    		
+//		value	string	as_replace 		
+//--------------------------------------------------------------------
+// Returns: string
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+Integer  li_pos,li_oldpos,li_len
+
+li_len = Len(as_find)
+
+li_pos = Pos(as_original,as_find)
+
+Do While li_pos > 0
+	as_original = Replace(as_original,li_pos,li_len,as_replace)
+	li_pos = Pos(as_original,as_find,li_pos + Len(as_replace))
+Loop
+
+Return as_original
+
+end function
+

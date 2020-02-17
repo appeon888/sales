@@ -1,0 +1,40 @@
+﻿$PBExportHeader$appeonldaplogon.srf
+global type appeonldaplogon from function_object
+end type
+
+forward prototypes
+global function string appeonldaplogon (string as_username, string as_password)
+end prototypes
+
+global function string appeonldaplogon (string as_username, string as_password);//==============================================================================
+// 
+// Copyright ? 2001-2008 Appeon, Inc. and its subsidiaries. All rights reserved.
+// 
+//------------------------------------------------------------------------------
+// Function: of_ldaplogon()
+//------------------------------------------------------------------------------
+// Description: 
+// 				Check LDAP security settings according to giving UserName and Password.
+// Arguments:(None)
+//	
+// Returns:  string
+//                 ""   Blank string indicates logon successfully.
+//                 Other string indicates some error occurs.
+//------------------------------------------------------------------------------
+// Author:	APPEON		Date: 2008-3
+//------------------------------------------------------------------------------
+// Revision History: 
+//				1.0   Initial version
+//==============================================================================
+
+String strRet
+AppeonExtFuncs funs
+funs = Create AppeonExtFuncs
+
+strRet = funs.of_ldaplogon( as_username, as_password)
+
+Destroy funs
+
+Return strRet
+end function
+

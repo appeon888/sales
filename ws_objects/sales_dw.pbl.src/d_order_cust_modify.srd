@@ -1,0 +1,46 @@
+﻿$PBExportHeader$d_order_cust_modify.srd
+$PBExportComments$Arguments=orderno
+release 8;
+datawindow(units=0 timer_interval=0 color=32039904 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=512 color="536870912" )
+table(column=(type=char(12) update=yes updatewhereclause=yes key=yes name=forderno dbname="t_orders.forderno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=fcustno dbname="t_orders.fcustno" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=fstatus dbname="t_orders.fstatus" initial="1" values="New	1/Processing	2/Ready to Ship	3/Shipped	4/" )
+ column=(type=date update=yes updatewhereclause=yes name=forderdate dbname="t_orders.forderdate" )
+ column=(type=char(12) update=yes updatewhereclause=yes name=ftype dbname="t_orders.ftype" values="Internet	Internet/Mail	Mail/Phone	Phone/" )
+ column=(type=decimal(2) updatewhereclause=yes name=famount dbname="t_orders.famount" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=fpaid dbname="t_orders.fpaid" values="	1/	0" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=fdescription dbname="t_orders.fdescription" )
+ retrieve="  SELECT ~"t_orders~".~"forderno~",   
+         ~"t_orders~".~"fcustno~",   
+         ~"t_orders~".~"fstatus~",   
+         ~"t_orders~".~"forderdate~",   
+         ~"t_orders~".~"ftype~",   
+         ~"t_orders~".~"famount~",   
+         ~"t_orders~".~"fpaid~",   
+         ~"t_orders~".~"fdescription~"  
+    FROM ~"t_orders~"  
+   WHERE ~"t_orders~".~"forderno~" = :as_orderno    
+" update="t_orders" updatewhere=1 updatekeyinplace=yes arguments=(("as_orderno", string)) )
+column(band=detail id=5 alignment="0" tabsequence=20 border="2" color="33554432" x="1522" y="120" height="88" width="549" format="[general]" html.valueishtml="0"  name=ftype  tag="Order Type" visible="1" edit.name="ddlb_ordertype" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes ddlb.autohscroll=yes ddlb.vscrollbar=yes ddlb.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=10 border="2" color="33554432" x="398" y="120" height="88" width="549" format="mm/dd/yyyy" html.valueishtml="0"  name=forderdate  tag="Order Date" visible="1" edit.name="em_date" editmask.autoskip=yes editmask.spin=yes editmask.mask="mm/dd/yyyy" editmask.imemode=0 editmask.spinrange="~~" editmask.spinincr=1 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="Paid:" border="0" color="33554432" x="1413" y="40" height="64" width="288" html.valueishtml="0"  name=fpaid_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=7 alignment="2" tabsequence=32766 border="0" color="33554432" x="1719" y="40" height="72" width="64" format="[general]" html.valueishtml="0"  name=fpaid  tag="Paid" visible="1" edit.name="cbx_paymentdue" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32039904" )
+text(band=detail alignment="1" text="Order ID:" border="0" color="33554432" x="1225" y="20" height="64" width="279" html.valueishtml="0"  name=forderno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Order Type:" border="0" color="33554432" x="1175" y="128" height="64" width="329" html.valueishtml="0"  name=ftype_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="*" border="0" color="16711680" x="2107" y="132" height="64" width="32" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Amount:" border="0" color="33554432" x="1225" y="236" height="64" width="279" html.valueishtml="0"  name=famount_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=30 border="2" color="33554432" x="398" y="340" height="160" width="1673" format="[general]" html.valueishtml="0"  name=fdescription  tag="Description" visible="1" edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Customer ID:" border="0" color="33554432" x="32" y="20" height="64" width="347" html.valueishtml="0"  name=fcustno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Order Date:" border="0" color="33554432" x="64" y="128" height="64" width="315" html.valueishtml="0"  name=forderdate_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Order Status:" border="0" color="33554432" x="27" y="236" height="64" width="352" html.valueishtml="0"  name=fstatus_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Description:" border="0" color="33554432" x="55" y="340" height="64" width="325" html.valueishtml="0"  name=fdescription_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="*" border="0" color="16711680" x="969" y="124" height="64" width="32" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="33554432" x="398" y="12" height="88" width="549" format="[general]" html.valueishtml="0"  name=fcustno visible="1" edit.name="em_custno" editmask.autoskip=yes editmask.mask="#-##-#" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="33554432" x="398" y="228" height="88" width="549" format="[general]" html.valueishtml="0"  name=fstatus  tag="Status" visible="1" edit.name="ddlb_orderstatus" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32039904" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="33554432" x="1522" y="12" height="88" width="549" format="[general]" html.valueishtml="0"  name=forderno  tag="Order No" visible="1" edit.name="em_orderno" editmask.autoskip=yes editmask.mask="#-##-#-##" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32039904" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="33554432" x="1522" y="228" height="88" width="549" format="$###,##0.00" html.valueishtml="0"  name=famount  tag="Amount" visible="1" edit.name="em_amount" editmask.autoskip=yes editmask.useformat=yes editmask.mask="###,##0.00" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="32039904" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

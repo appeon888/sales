@@ -1,0 +1,17 @@
+﻿$PBExportHeader$dw_assigned_group.srd
+$PBExportComments$Assigned groups
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=fgroupno dbname="t_usergroup.fgroupno" )
+ column=(type=char(20) update=yes updatewhereclause=yes key=yes name=fuserno dbname="t_usergroup.fuserno" )
+ retrieve="  SELECT ~"t_usergroup~".~"fgroupno~",   
+         ~"t_usergroup~".~"fuserno~"  
+    FROM ~"t_usergroup~"  
+	where ~"fuserno~"=:as_userno
+" update="t_usergroup" updatewhere=1 updatekeyinplace=no arguments=(("as_userNo", string)) )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="33554432" x="9" y="24" height="64" width="1545" format="[general]" html.valueishtml="0"  name=fgroupno visible="1" edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

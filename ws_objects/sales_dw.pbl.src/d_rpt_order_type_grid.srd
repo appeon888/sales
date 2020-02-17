@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_rpt_order_type_grid.srd
+$PBExportComments$Order Type ,Grid
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=92 color="536870912" )
+summary(height=112 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(12) updatewhereclause=yes name=ftype dbname="t_orders.ftype" values="Internet	Internet/Mail	Mail/Phone	Phone/" )
+ column=(type=decimal(2) updatewhereclause=yes name=famount dbname="famount" )
+ column=(type=decimal(2) updatewhereclause=yes name=famount_paid dbname="famount_paid" )
+ column=(type=decimal(2) updatewhereclause=yes name=famount_unpaid dbname="famount_unpaid" )
+ retrieve="  SELECT ~"t_orders~".~"ftype~",   
+         sum(~"t_orders~".~"famount~") as ~"famount~",
+         sum(Case when ~"t_orders~".~"fpaid~"='1' THEN ~"t_orders~".~"famount~" else 0 end)  as ~"famount_paid~",
+         sum(Case when ~"t_orders~".~"fpaid~"='0' THEN ~"t_orders~".~"famount~" else 0 end)  as ~"famount_unpaid~"
+    FROM ~"t_orders~"  
+where ~"forderdate~" between :ad_from and :ad_to
+group by ~"t_orders~".~"ftype~"
+" arguments=(("ad_from", date),("ad_to", date)) )
+text(band=header alignment="2" text="No" border="0" color="33554432" x="9" y="20" height="52" width="178" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Order Type" border="0" color="33554432" x="197" y="20" height="52" width="352" html.valueishtml="0"  name=ftype_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Total Amount" border="0" color="33554432" x="1481" y="20" height="52" width="425" html.valueishtml="0"  name=famount_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Paid Amount" border="0" color="33554432" x="558" y="20" height="52" width="443" html.valueishtml="0"  name=famount_paid_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Unpaid Amount" border="0" color="33554432" x="1010" y="20" height="52" width="462" html.valueishtml="0"  name=famount_unpaid_t visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="197" y="8" height="64" width="352" format="[general]" html.valueishtml="0"  name=ftype  tag="Order Type" visible="1" edit.name="ddlb_ordertype" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes ddlb.autohscroll=yes ddlb.vscrollbar=yes ddlb.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="getrow()"border="0" color="33554432" x="9" y="8" height="64" width="178" format="[General]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="1481" y="8" height="64" width="425" format="$###,###,##0.00" html.valueishtml="0"  name=famount visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="558" y="8" height="64" width="443" format="$###,###,##0.00" html.valueishtml="0"  name=famount_paid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="1010" y="8" height="64" width="462" format="$###,###,##0.00" html.valueishtml="0"  name=famount_unpaid visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(famount for all)"border="0" color="33554432" x="1481" y="20" height="52" width="425" format="$###,###,##0.00" html.valueishtml="0"  name=compute_2 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(famount_paid for all)"border="0" color="33554432" x="558" y="20" height="52" width="443" format="$###,###,##0.00" html.valueishtml="0"  name=compute_3 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(famount_unpaid for all)"border="0" color="33554432" x="1010" y="20" height="52" width="462" format="$###,###,##0.00" html.valueishtml="0"  name=compute_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="2" text="Total" border="0" color="33554432" x="9" y="24" height="52" width="178" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

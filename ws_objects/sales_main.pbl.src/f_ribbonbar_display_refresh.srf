@@ -1,0 +1,167 @@
+﻿$PBExportHeader$f_ribbonbar_display_refresh.srf
+global type f_ribbonbar_display_refresh from function_object
+end type
+
+forward prototypes
+global subroutine f_ribbonbar_display_refresh (ref ribbonbar arbb_main, string as_windowclassname)
+end prototypes
+
+global subroutine f_ribbonbar_display_refresh (ref ribbonbar arbb_main, string as_windowclassname);//f_ribbonbar_display_refresh(ribbonbar arbb_main,	String	as_windowClassname) return none
+//add by liulihua 2019-09-26
+//only achieved the category of Operation tab
+
+//check the parameter object is valid
+If	Not	IsValid (arbb_main)	Then	Return
+
+Integer		li_Return
+PowerObject	lpbo_Item
+RibbonsmallbuttonItem		lrbbsb_button
+RibbonLargeButtonItem		lrbblb_button
+
+//data operation
+//small button
+li_Return	=	arbb_main.GetItemByTag("Retrieve", lrbbsb_button )
+If li_Return =	1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("InsertRow", lrbbsb_button )
+If	li_Return =	1 Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("DeleteRow", lrbbsb_button )
+If	li_Return =	1 Then
+	lrbbsb_button.Enabled = True
+End	If
+
+//large button
+li_Return	=	arbb_main.GetItemByTag("SaveData", lrbblb_button )
+If	li_Return =	1 Then
+	lrbblb_button.Enabled = True
+End	If
+
+//row scroll
+li_Return	=	arbb_main.GetItemByTag("First", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("Prior", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("Next", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("Last", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+//data sort
+li_Return	=	arbb_main.GetItemByTag("Sort", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("Filter", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("Find", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+li_Return	=	arbb_main.GetItemByTag("FindNext", lrbbsb_button )
+If li_Return = 1	Then
+	lrbbsb_button.Enabled = True
+End	If
+
+
+Choose	Case as_windowClassname
+		
+	Case	"w_order_viewer"
+		//data operation
+		//small button		
+		li_Return	=	arbb_main.GetItemByTag("InsertRow", lrbbsb_button )
+		If	li_Return =	1 Then
+			lrbbsb_button.Enabled = False
+		End	If
+		arbb_main.SetSmallButton(lrbbsb_button.ItemHandle, lrbbsb_button)
+		
+		li_Return	=	arbb_main.GetItemByTag("DeleteRow", lrbbsb_button )
+		If	li_Return =	1 Then
+			lrbbsb_button.Enabled = False
+		End	If
+		arbb_main.SetSmallButton(lrbbsb_button.ItemHandle, lrbbsb_button)
+		
+		//large button
+		li_Return	=	arbb_main.GetItemByTag("SaveData", lrbblb_button )
+		If	li_Return =	1 Then
+			lrbblb_button.Enabled = False
+		End	If		
+		arbb_main.SetLargeButton(lrbblb_button.ItemHandle, lrbblb_button )
+		
+		//data sort
+		li_Return	=	arbb_main.GetItemByTag("Sort", lrbbsb_button )
+		If li_Return = 1	Then
+			lrbbsb_button.Enabled = False
+		End	If
+		arbb_main.SetSmallButton(lrbbsb_button.ItemHandle, lrbbsb_button)
+		
+		li_Return	=	arbb_main.GetItemByTag("Filter", lrbbsb_button )
+		If li_Return = 1	Then
+			lrbbsb_button.Enabled = False
+		End	If
+		arbb_main.SetSmallButton(lrbbsb_button.ItemHandle, lrbbsb_button)
+		
+		li_Return	=	arbb_main.GetItemByTag("Find", lrbbsb_button )
+		If li_Return = 1	Then
+			lrbbsb_button.Enabled = False
+		End	If
+		arbb_main.SetSmallButton(lrbbsb_button.ItemHandle, lrbbsb_button)
+		
+		li_Return	=	arbb_main.GetItemByTag("FindNext", lrbbsb_button )
+		If li_Return = 1	Then
+			lrbbsb_button.Enabled = False
+		End	If
+		arbb_main.SetSmallButton(lrbbsb_button.ItemHandle, lrbbsb_button)
+		
+	Case	"w_customer_maintenance"
+		
+		
+		
+	Case Else
+		
+End	Choose
+//Integer		li_Return
+////get category by index 1
+//RibbonCategoryItem lrbbci_operation
+//li_Return	=	lrbb_Set.GetCategoryByIndex(1,lrbbci_operation)
+//If	IsNull(li_Return)	Or	li_Return <> 1	Then	Return
+//
+////get panel by index 1
+//RibbonPanelItem		lrbbpi_operation
+//
+//li_Return	=	lrbb_Set.GetPanelByIndex(lrbbci_operation.ItemHandle, 2,lrbbpi_operation)
+//If	IsNull(li_Return)	Or	li_Return <> 1	Then	Return
+//
+////get child item count
+//Integer		li_PanelItemCount
+//Integer		li_For
+//li_PanelItemCount	=	lrbb_Set.GetChildItemCount(lrbbpi_operation.ItemHandle)
+//If	li_PanelItemCount < 1 Then Return
+//
+//For	li_For	=	1	To	li_PanelItemCount
+//	
+//	
+//	
+//Next
+end subroutine
+

@@ -1,0 +1,56 @@
+﻿$PBExportHeader$d_cust_list_all.srd
+release 8;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=156 color="31059397" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=fcustno dbname="t_customers.fcustno" )
+ column=(type=char(25) updatewhereclause=yes name=flastname dbname="t_customers.flastname" )
+ column=(type=char(25) updatewhereclause=yes name=ffirstname dbname="t_customers.ffirstname" )
+ column=(type=char(255) updatewhereclause=yes name=faddress dbname="t_customers.faddress" )
+ column=(type=char(20) updatewhereclause=yes name=fcity dbname="t_customers.fcity" )
+ column=(type=char(5) updatewhereclause=yes name=fstate dbname="t_customers.fstate" )
+ column=(type=char(10) updatewhereclause=yes name=fzip dbname="t_customers.fzip" )
+ column=(type=char(4) updatewhereclause=yes name=fm dbname="t_customers.fm" values="Mr.	Mr./Mrs.	Mrs./Ms.	Ms./Miss	Miss/Dr.	Dr./" )
+ column=(type=char(1) updatewhereclause=yes name=fpaymentdue dbname="t_customers.fpaymentdue" values="	1/	0/" )
+ column=(type=char(20) updatewhereclause=yes name=fcountry dbname="t_customers.fcountry" )
+ column=(type=char(1) updatewhereclause=yes name=fhasorders dbname="fhasorders" )
+ retrieve="  SELECT ~"t_customers~".~"fcustno~",   
+         ~"t_customers~".~"flastname~",   
+         ~"t_customers~".~"ffirstname~",   
+         ~"t_customers~".~"faddress~",   
+         ~"t_customers~".~"fcity~",   
+         ~"t_customers~".~"fstate~",   
+         ~"t_customers~".~"fzip~",   
+         ~"t_customers~".~"fm~",   
+         ~"t_customers~".~"fpaymentdue~",   
+         ~"t_customers~".~"fcountry~"  ,
+			case when count(~"t_orders~".~"forderno~") > 0 THEN '1' else '0' END as ~"FHasOrders~"
+    FROM ~"t_customers~"  LEFT OUTER JOIN ~"t_Orders~" ON ~"t_customers~".~"fcustno~" = ~"t_Orders~".~"FCustNo~"
+group by ~"t_customers~".~"fcustno~",   
+         ~"t_customers~".~"flastname~",   
+         ~"t_customers~".~"ffirstname~",   
+         ~"t_customers~".~"faddress~",   
+         ~"t_customers~".~"fcity~",   
+         ~"t_customers~".~"fstate~",   
+         ~"t_customers~".~"fzip~",   
+         ~"t_customers~".~"fm~",   
+         ~"t_customers~".~"fpaymentdue~",   
+         ~"t_customers~".~"fcountry~"  
+ORDER BY ~"t_customers~".~"fcustno~"
+" )
+text(band=header alignment="2" text="Customer ID" border="0" color="33554432" x="9" y="4" height="132" width="329" html.valueishtml="0"  name=fcustno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Last Name" border="0" color="33554432" x="347" y="4" height="128" width="384" html.valueishtml="0"  name=flastname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="First Name" border="0" color="33554432" x="741" y="4" height="128" width="334" html.valueishtml="0"  name=ffirstname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="City" border="0" color="33554432" x="1417" y="48" height="64" width="379" html.valueishtml="0"  name=fstate_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="State" border="0" color="33554432" x="1243" y="44" height="64" width="165" html.valueishtml="0"  name=fcity_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Title" border="0" color="33554432" x="1083" y="44" height="64" width="151" html.valueishtml="0"  name=fm_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="33554432" x="9" y="24" height="80" width="329" format="[general]" html.valueishtml="0"  name=fcustno  tag="Customer No" visible="1" edit.name="em_custno" editmask.autoskip=yes editmask.useformat=yes editmask.mask="#-##-#" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="33554432" x="347" y="24" height="80" width="384" format="[general]" html.valueishtml="0"  name=flastname  tag="Last Name" visible="1" edit.limit=25 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="33554432" x="741" y="24" height="80" width="334" format="[general]" html.valueishtml="0"  name=ffirstname  tag="First Name" visible="1" edit.limit=25 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="33554432" x="1417" y="24" height="80" width="379" format="[general]" html.valueishtml="0"  name=fcity  tag="City" visible="1" edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="0" color="33554432" x="1243" y="24" height="80" width="165" format="[general]" html.valueishtml="0"  name=fstate  tag="State" visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="1083" y="24" height="80" width="151" format="[general]" html.valueishtml="0"  name=fm visible="1" edit.name="ddlb_title" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

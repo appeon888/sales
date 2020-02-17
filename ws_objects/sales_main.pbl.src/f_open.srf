@@ -1,0 +1,13 @@
+﻿$PBExportHeader$f_open.srf
+global type f_open from function_object
+end type
+
+forward prototypes
+global subroutine f_open ()
+end prototypes
+
+global subroutine f_open ();w_mdi.hide()
+
+open(w_logon)
+end subroutine
+

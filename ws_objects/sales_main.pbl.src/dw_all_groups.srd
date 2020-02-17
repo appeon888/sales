@@ -1,0 +1,17 @@
+﻿$PBExportHeader$dw_all_groups.srd
+$PBExportComments$User Groups
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=132 color="31059397" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="553648127" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=fgroupno dbname="t_groups.fgroupno" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=fdescription dbname="t_groups.fdescription" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"t_groups~" ) COLUMN(NAME=~"t_groups.fgroupno~") COLUMN(NAME=~"t_groups.fdescription~")) " update="t_groups" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Group Name" border="0" color="33554432" x="9" y="32" height="84" width="430" html.valueishtml="0"  name=fgroupno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Description" border="0" color="33554432" x="448" y="32" height="84" width="1531" html.valueishtml="0"  name=fdescription_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="8" height="100" width="430" format="[general]" html.valueishtml="0"  name=fgroupno visible="1" edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=2 edit.displayonly=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="448" y="8" height="100" width="1531" format="[general]" html.valueishtml="0"  name=fdescription visible="1" edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0 edit.displayonly=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

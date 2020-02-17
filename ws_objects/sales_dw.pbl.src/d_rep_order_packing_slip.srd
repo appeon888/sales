@@ -1,0 +1,108 @@
+﻿$PBExportHeader$d_rep_order_packing_slip.srd
+$PBExportComments$All customers report
+release 8;
+datawindow(units=0 timer_interval=60000 color=1073741824 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=388 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=136 color="536870912" )
+table(column=(type=char(12) update=yes updatewhereclause=yes name=forderno dbname="t_orders.forderno" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=fcustno dbname="t_orders.fcustno" )
+ column=(type=date update=yes updatewhereclause=yes name=forderdate dbname="t_orders.forderdate" )
+ column=(type=char(12) update=yes updatewhereclause=yes name=ftype dbname="t_orders.ftype" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=famount dbname="t_orders.famount" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=fpaid dbname="t_orders.fpaid" values="	1/	0/" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=fdescription dbname="t_orders.fdescription" )
+ column=(type=char(53) updatewhereclause=yes name=fcustname dbname="fcustname" )
+ column=(type=char(255) updatewhereclause=yes name=t_customers_faddress dbname="t_customers.faddress" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_fcity dbname="t_customers.fcity" )
+ column=(type=char(5) updatewhereclause=yes name=t_customers_fstate dbname="t_customers.fstate" )
+ column=(type=char(10) updatewhereclause=yes name=t_customers_fzip dbname="t_customers.fzip" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_femail dbname="t_customers.femail" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_fworkphone dbname="t_customers.fworkphone" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_fcountry dbname="t_customers.fcountry" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_ffax dbname="t_customers.ffax" )
+ column=(type=char(10) updatewhereclause=yes name=fsku dbname="t_orders_items.fsku" )
+ column=(type=decimal(2) updatewhereclause=yes name=fquantity dbname="t_orders_items.fquantity" )
+ column=(type=decimal(4) updatewhereclause=yes name=funit_price dbname="t_orders_items.funit_price" )
+ column=(type=decimal(2) updatewhereclause=yes name=t_orders_items_famount dbname="t_orders_items.famount" )
+ column=(type=char(277) updatewhereclause=yes name=fproname dbname="fproname" )
+ retrieve="  SELECT ~"t_orders~".~"forderno~",   
+         ~"t_orders~".~"fcustno~",   
+         ~"t_orders~".~"forderdate~",   
+         ~"t_orders~".~"ftype~",   
+         ~"t_orders~".~"famount~",   
+         ~"t_orders~".~"fpaid~",   
+         ~"t_orders~".~"fdescription~",   
+         trim(~"t_customers~".~"flastname~")+' - '+trim(~"t_customers~".~"ffirstname~") as ~"fcustname~",   
+         ~"t_customers~".~"faddress~",   
+         ~"t_customers~".~"fcity~"+',' as ~"fcity~" ,   
+         ~"t_customers~".~"fstate~",   
+         ~"t_customers~".~"fzip~",   
+         ~"t_customers~".~"femail~"  ,
+         ~"t_customers~".~"fworkphone~"  ,
+         ~"t_customers~".~"fcountry~"  ,
+         ~"t_customers~".~"ffax~"  ,
+	~"t_Orders_Items~".~"fsku~",
+	~"t_Orders_Items~".~"fquantity~",
+	~"t_Orders_Items~".~"funit_price~",
+	~"t_Orders_Items~".~"famount~",
+	~"fproname~" = ~"t_products~".~"fproname~"+case when ~"t_products~".~"fdescription~" is null then '' else ', '+~"t_products~".~"fdescription~" end
+    FROM ~"t_orders~",   
+         ~"t_customers~"  ,
+			~"t_Orders_Items~",
+			~"t_Products~"
+   WHERE ( ~"t_orders~".~"fcustno~" = ~"t_customers~".~"fcustno~" ) and  
+			~"t_orders~".~"forderno~" =:as_OrderNo and
+			~"t_Orders_Items~".~"forderno~" = ~"t_orders~".~"forderno~" and
+			~"t_orders_items~".~"fsku~"= ~"t_products~".~"fsku~"
+ORDER BY ~"t_orders~".~"forderno~" ASC ,
+		~"t_Orders_Items~".~"flineid~" ASC
+" arguments=(("as_OrderNo", string)) )
+group(level=1 header.height=628 trailer.height=332 by=("fcustno" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="Packing Slip" border="0" color="0" x="27" y="172" height="132" width="1111" html.valueishtml="0"  name=t_2 visible="1"  font.face="Tahoma" font.height="-20" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text=" ACME Inc." border="0" color="16777215" x="27" y="32" height="96" width="2057" html.valueishtml="0"  name=t_17 visible="1"  font.face="MS Sans Serif" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="10789024" )
+text(band=header alignment="0" text="E-mail: billing@acme.com" border="0" color="134217734" x="2263" y="304" height="52" width="667" html.valueishtml="0"  name=t_8 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Fax: (415)456-1283" border="0" color="134217734" x="2263" y="244" height="52" width="613" html.valueishtml="0"  name=t_7 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Phone: (415)456-7890" border="0" color="134217734" x="2263" y="192" height="52" width="571" html.valueishtml="0"  name=t_6 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="USA" border="0" color="134217734" x="2263" y="136" height="52" width="146" html.valueishtml="0"  name=t_5 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="San Franclsco, CA 94103" border="0" color="134217734" x="2263" y="80" height="52" width="613" html.valueishtml="0"  name=t_4 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="345 Industrial Parkway" border="0" color="134217734" x="2263" y="24" height="52" width="567" html.valueishtml="0"  name=t_3 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Amount" border="0" color="33554432" x="2610" y="556" height="52" width="366" html.valueishtml="0"  name=t_28 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Unit Price" border="0" color="33554432" x="2249" y="556" height="52" width="329" html.valueishtml="0"  name=t_26 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="Description" border="0" color="33554432" x="745" y="556" height="52" width="1472" html.valueishtml="0"  name=t_22 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="SKU" border="0" color="33554432" x="421" y="552" height="52" width="283" html.valueishtml="0"  name=t_23 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="2" text="QTY" border="0" color="33554432" x="91" y="552" height="52" width="288" html.valueishtml="0"  name=t_27 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header.1 x1="27" y1="620" x2="2981" y2="620"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+line(band=header.1 x1="27" y1="8" x2="2981" y2="8"  name=l_6 visible="1" pen.style="0" pen.width="9" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+text(band=header.1 alignment="0" text="Ship to:" border="0" color="134217734" x="2030" y="36" height="52" width="219" html.valueishtml="0"  name=t_12 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header.1 x1="27" y1="540" x2="2981" y2="540"  name=l_1 visible="1" pen.style="0" pen.width="9" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+column(band=header.1 id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="2263" y="100" height="108" width="741" format="[general]" html.valueishtml="0"  name=t_customers_faddress_1 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="2263" y="32" height="52" width="731" format="[general]" html.valueishtml="0"  name=fcustname visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="Order ID:" border="0" color="33554432" x="146" y="32" height="52" width="251" html.valueishtml="0"  name=forderno_t visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="430" y="28" height="60" width="384" format="[general]" html.valueishtml="0"  name=forderno visible="1" edit.name="em_orderno" editmask.autoskip=yes editmask.mask="#-##-#-##" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="Order Date:" border="0" color="33554432" x="146" y="108" height="52" width="251" html.valueishtml="0"  name=forderdate_t visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="430" y="104" height="60" width="416" format="mm/dd/yyyy" html.valueishtml="0"  name=forderdate visible="1" edit.name="em_date" editmask.autoskip=yes editmask.useformat=yes editmask.mask="mm/dd/yyyy" editmask.imemode=0 editmask.spinrange="~~" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="Ship Date:" border="0" color="33554432" x="37" y="188" height="52" width="361" html.valueishtml="0"  name=t_25 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header.1 alignment="0" expression="today()"border="0" color="33554432" x="430" y="188" height="56" width="430" format="mm/dd/yyyy" html.valueishtml="0"  name=compute_10 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="1" text="Comment:" border="0" color="33554432" x="73" y="268" height="52" width="325" html.valueishtml="0"  name=fdescription_t visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="430" y="268" height="120" width="1175" format="[general]" html.valueishtml="0"  name=fdescription visible="1" edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=15 alignment="0" tabsequence=32766 border="0" color="33554432" x="2263" y="292" height="52" width="462" format="[general]" html.valueishtml="0"  name=t_customers_fcountry visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=10 alignment="0" tabsequence=32766 border="0" color="33554432" x="2263" y="220" height="60" width="352" format="[general]" html.valueishtml="0"  name=t_customers_fcity_1 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=12 alignment="0" tabsequence=32766 border="0" color="33554432" x="2725" y="220" height="60" width="283" format="[general]" html.valueishtml="0"  name=t_customers_fzip_1 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=11 alignment="0" tabsequence=32766 border="0" color="33554432" x="2624" y="220" height="60" width="91" format="[general]" html.valueishtml="0"  name=t_customers_fstate_1 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=16 alignment="0" tabsequence=32766 border="0" color="33554432" x="2450" y="424" height="52" width="562" format="[general]" html.valueishtml="0"  name=t_customers_ffax visible="1" edit.name="em_phone" editmask.autoskip=yes editmask.mask="(###)###-####" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=14 alignment="0" tabsequence=32766 border="0" color="33554432" x="2450" y="356" height="52" width="562" format="[general]" html.valueishtml="0"  name=t_customers_fworkphone visible="1" edit.name="em_phone" editmask.autoskip=yes editmask.mask="(###)###-####" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="Phone:" border="0" color="134217734" x="2263" y="356" height="52" width="155" html.valueishtml="0"  name=t_9 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="0" text="Fax:" border="0" color="134217734" x="2263" y="424" height="52" width="155" html.valueishtml="0"  name=t_10 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="33554432" x="2615" y="48" height="52" width="366" format="$###,##0.00" html.valueishtml="0"  name=t_orders_items_famount visible="1" edit.name="em_amount" editmask.autoskip=yes editmask.useformat=yes editmask.mask="###,##0.00" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="33554432" x="2245" y="48" height="52" width="329" format="$###,##0.00" html.valueishtml="0"  name=funit_price visible="1" edit.name="em_unitprice" editmask.autoskip=yes editmask.useformat=yes editmask.mask="###,##0.00" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="33554432" x="745" y="48" height="52" width="1472" format="[general]" html.valueishtml="0"  name=fproname visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="2" tabsequence=32766 border="0" color="33554432" x="425" y="48" height="52" width="283" format="[general]" html.valueishtml="0"  name=fsku visible="1" edit.name="em_sku" editmask.autoskip=yes editmask.mask="a-###-##" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="2" tabsequence=32766 border="0" color="33554432" x="91" y="48" height="52" width="288" format="###,##0" html.valueishtml="0"  name=fquantity visible="1" edit.name="em_amount" editmask.autoskip=yes editmask.useformat=yes editmask.mask="###,##0" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="27" y1="76" x2="2981" y2="76"  name=l_4 visible="1" pen.style="0" pen.width="9" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+line(band=trailer.1 x1="27" y1="164" x2="2981" y2="164"  name=l_3 visible="1" pen.style="0" pen.width="9" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+compute(band=trailer.1 alignment="1" expression="sum( t_orders_items_famount  for group 1)"border="0" color="33554432" x="2537" y="84" height="64" width="443" format="$###,###,##0.00#" html.valueishtml="0"  name=compute_8 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="1" text="Total:" border="0" color="33554432" x="2299" y="88" height="52" width="178" html.valueishtml="0"  name=t_13 visible="1"  font.face="MS Sans Serif" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

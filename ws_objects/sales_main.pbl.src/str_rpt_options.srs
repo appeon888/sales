@@ -1,0 +1,12 @@
+﻿$PBExportHeader$str_rpt_options.srs
+$PBExportComments$ReportOptions
+global type str_rpt_options from structure
+	long		ftextcolor
+	long		fbackcolor
+	integer		ffontsize
+	boolean		fautorefresh
+	string		freportstyle
+	string		fdefaultdate
+	string		fdefaultyear
+end type
+

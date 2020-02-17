@@ -1,0 +1,29 @@
+﻿$PBExportHeader$appeonisin64browser.srf
+global type appeonisin64browser from function_object
+end type
+
+forward prototypes
+global function boolean appeonisin64browser ()
+end prototypes
+
+global function boolean appeonisin64browser ();//==============================================================================
+// 
+// Copyright ? 2001-2010 Appeon, Inc. and its subsidiaries. All rights reserved.
+// 
+//------------------------------------------------------------------------------
+// Function: appeonisin64browser()
+//------------------------------------------------------------------------------
+// Revision History: 
+//				1.0   Initial version
+//==============================================================================
+
+boolean bRet
+AppeonExtFuncs funs
+funs = Create AppeonExtFuncs
+
+bRet = funs.of_is64browser()
+
+Destroy funs
+Return bRet
+end function
+

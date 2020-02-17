@@ -1,0 +1,18 @@
+﻿$PBExportHeader$gf_printsetup.srf
+global type gf_printsetup from function_object
+end type
+
+forward prototypes
+global function integer gf_printsetup ()
+end prototypes
+
+global function integer gf_printsetup ();/*
+Return Value
+0:	Is Cancel
+1:	Is OK
+*/
+Open(w_printsetup)
+
+Return Message.DoubleParm
+end function
+

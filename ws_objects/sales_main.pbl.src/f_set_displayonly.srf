@@ -1,0 +1,47 @@
+﻿$PBExportHeader$f_set_displayonly.srf
+$PBExportComments$Set datawindow readonly
+global type f_set_displayonly from function_object
+end type
+
+forward prototypes
+global function integer f_set_displayonly (datawindow adw_parent)
+end prototypes
+
+global function integer f_set_displayonly (datawindow adw_parent);//====================================================================
+// Function: f_set_displayonly()
+//--------------------------------------------------------------------
+// Description: Set datawindow displayonly
+//--------------------------------------------------------------------
+// Arguments: 
+//		value	datawindow	adw_parent		
+//--------------------------------------------------------------------
+// Returns: integer
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+Integer   li_Count,li_Cnt
+String    ls_Name
+
+If Not IsValid(adw_parent) Then Return -1
+
+li_Count = Integer(adw_parent.Describe("datawindow.column.count"))
+
+For li_Cnt = 1 To li_Count
+	ls_Name = adw_parent.Describe("#"+String(li_Cnt)+".name")
+	If adw_parent.Describe(ls_Name+".edit.style") = 'edit' Then
+		adw_parent.Modify(ls_Name+".edit.displayonly='yes'")
+	Else
+		adw_parent.Modify(ls_Name+".taborder=0")
+	End If
+Next
+
+Return 1
+
+end function
+

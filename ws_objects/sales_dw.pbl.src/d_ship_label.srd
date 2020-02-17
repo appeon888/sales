@@ -1,0 +1,30 @@
+﻿$PBExportHeader$d_ship_label.srd
+release 8;
+datawindow(units=2 timer_interval=0 color=1073741824 processing=2 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 156 print.margin.right = 156 print.margin.top = 500 print.margin.bottom = 501 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no label.name="Laser Address/Ship 3.33 x 4.00 5164" label.width=2300 label.height=1000 label.rows=3 label.rows.spacing=0 label.columns=2 label.columns.spacing=188 label.topdown=no label.sheet=yes label.shape=roundrectangle label.ellipse_height=158 label.ellipse_width=158 )
+detail(height=1000 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=fcustno dbname="t_customers.fcustno" )
+ column=(type=char(52) updatewhereclause=yes name=compute_0002 dbname="compute_0002" )
+ column=(type=char(255) updatewhereclause=yes name=faddress dbname="t_customers.faddress" )
+ column=(type=char(21) updatewhereclause=yes name=fcity dbname="fcity" )
+ column=(type=char(5) updatewhereclause=yes name=fstate dbname="t_customers.fstate" )
+ column=(type=char(10) updatewhereclause=yes name=fzip dbname="t_customers.fzip" )
+ column=(type=char(20) updatewhereclause=yes name=fcountry dbname="t_customers.fcountry" )
+ retrieve="  SELECT ~"t_customers~".~"fcustno~",   
+         ~"t_customers~".~"ffirstname~"||', '||~"t_customers~".~"flastname~",   
+         ~"t_customers~".~"faddress~",   
+         ~"t_customers~".~"fcity~"+',' as ~"fcity~",   
+         ~"t_customers~".~"fstate~",   
+         ~"t_customers~".~"fzip~",   
+         ~"t_customers~".~"fcountry~"  
+    FROM ~"t_customers~",~"t_orders~"
+   WHERE ( ~"t_customers~".~"fcustno~" =~"t_orders~".~"fcustno~" and ~"t_orders~".~"forderno~" = :as_orderno )   
+" arguments=(("as_orderno", string)) )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="114" y="312" height="291" width="2052" format="[general]" html.valueishtml="0"  name=faddress visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="114" y="93" height="166" width="500" format="[general]" html.valueishtml="0"  name=fcustno  tag="Customer No" visible="1" edit.name="em_custno" editmask.autoskip=yes editmask.useformat=yes editmask.mask="#-##-#" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="656" y="93" height="166" width="1489" format="[general]" html.valueishtml="0"  name=compute_0002 visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="114" y="625" height="145" width="770" format="[general]" html.valueishtml="0"  name=fcity visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="1218" y="625" height="135" width="937" format="[general]" html.valueishtml="0"  name=fzip visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="989" y="625" height="135" width="208" format="[general]" html.valueishtml="0"  name=fstate visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="114" y="812" height="114" width="770" format="[general]" html.valueishtml="0"  name=fcountry visible="1" edit.limit=0 edit.case=any edit.autoselect=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

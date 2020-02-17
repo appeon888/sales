@@ -1,0 +1,39 @@
+﻿$PBExportHeader$f_get_selectedrow.srf
+$PBExportComments$Get first selected row number
+global type f_get_selectedrow from function_object
+end type
+
+forward prototypes
+global function integer f_get_selectedrow (datawindow adw_parent)
+end prototypes
+
+global function integer f_get_selectedrow (datawindow adw_parent);//====================================================================
+// Function: f_get_selectedrow()
+//--------------------------------------------------------------------
+// Description: Return the first selected row
+//--------------------------------------------------------------------
+// Arguments: 
+//		value	datawindow	adw_parent		
+//--------------------------------------------------------------------
+// Returns: integer
+//--------------------------------------------------------------------
+// Author: 	laihaichun		Date: 2003/12/30
+//--------------------------------------------------------------------
+// Modify History: 
+//	
+//--------------------------------------------------------------------
+// CopyRight 2003----???? Appeon Inc.
+//====================================================================
+
+If Not IsValid(adw_parent) Then Return -1
+
+Int  li_Row
+
+For li_Row = 1 To adw_parent.RowCount()
+	If adw_parent.IsSelected(li_Row) Then Return li_Row
+Next
+
+Return -1
+
+end function
+

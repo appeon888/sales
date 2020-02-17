@@ -1,0 +1,32 @@
+﻿$PBExportHeader$dw_all_users.srd
+$PBExportComments$System Users
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=132 color="31059397" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="536870912" )
+table(column=(type=char(20) update=yes updatewhereclause=yes key=yes name=fuserno dbname="t_user.fuserno" )
+ column=(type=char(25) update=yes updatewhereclause=yes name=flastname dbname="t_user.flastname" )
+ column=(type=char(25) update=yes updatewhereclause=yes name=ffirstname dbname="t_user.ffirstname" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=fdescription dbname="t_user.fdescription" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=fpassword dbname="t_user.fpassword" )
+ retrieve="  SELECT ~"t_user~".~"fuserno~",   
+         ~"t_user~".~"flastname~",   
+         ~"t_user~".~"ffirstname~",   
+         ~"t_user~".~"fdescription~",   
+         ~"t_user~".~"fpassword~"  
+    FROM ~"t_user~"  
+where ~"fuserno~" <>'administrator'
+ORDER BY ~"t_user~".~"fuserno~" ASC   
+" update="t_user" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="User ID" border="0" color="33554432" x="9" y="24" height="88" width="343" html.valueishtml="0"  name=fuserno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Last Name" border="0" color="33554432" x="361" y="24" height="88" width="489" html.valueishtml="0"  name=flastname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="First Name" border="0" color="33554432" x="859" y="24" height="88" width="448" html.valueishtml="0"  name=ffirstname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Description" border="0" color="33554432" x="1317" y="24" height="88" width="754" html.valueishtml="0"  name=fdescription_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="16" height="80" width="343" format="[general]" html.valueishtml="0"  name=fuserno  tag="User No" visible="1" edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0 edit.displayonly=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="361" y="16" height="80" width="489" format="[general]" html.valueishtml="0"  name=flastname  tag="Last Name" visible="1" edit.limit=25 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0 edit.displayonly=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="859" y="16" height="80" width="448" format="[general]" html.valueishtml="0"  name=ffirstname  tag="First Name" visible="1" edit.limit=25 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0 edit.displayonly=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="1317" y="16" height="80" width="754" format="[general]" html.valueishtml="0"  name=fdescription visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.imemode=0 edit.displayonly=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )

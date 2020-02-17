@@ -1,0 +1,65 @@
+﻿$PBExportHeader$d_order_status_processing.srd
+$PBExportComments$For Processing
+release 8;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=132 color="31059397" )
+summary(height=0 color="536870912" )
+footer(height=132 color="16776960" )
+detail(height=120 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=no dbname="no" values="	1/	0" )
+ column=(type=char(12) updatewhereclause=yes name=t_orders_forderno dbname="t_orders.forderno" )
+ column=(type=decimal(2) updatewhereclause=yes name=t_orders_famount dbname="t_orders.famount" )
+ column=(type=char(10) updatewhereclause=yes name=t_customers_fcustno dbname="t_customers.fcustno" )
+ column=(type=char(25) updatewhereclause=yes name=t_customers_flastname dbname="t_customers.flastname" )
+ column=(type=char(25) updatewhereclause=yes name=t_customers_ffirstname dbname="t_customers.ffirstname" )
+ column=(type=char(4) updatewhereclause=yes name=t_customers_fm dbname="t_customers.fm" values="Mr.	Mr./Mrs.	Mrs./Ms.	Ms./Miss	Miss/Dr.	Dr./" )
+ column=(type=char(255) updatewhereclause=yes name=t_customers_faddress dbname="t_customers.faddress" )
+ column=(type=char(1) updatewhereclause=yes name=t_orders_fstatus dbname="t_orders.fstatus" values="New	1/Processing	2/Ready to Ship	3/Shipped	4/" )
+ column=(type=char(12) updatewhereclause=yes name=t_orders_ftype dbname="t_orders.ftype" values="Internet	Internet/Mail	Mail/Phone	Phone/" )
+ column=(type=char(1) updatewhereclause=yes name=t_orders_fpaid dbname="t_orders.fpaid" values="	1/	0/" )
+ column=(type=char(1) updatewhereclause=yes name=t_customers_fpaymentdue dbname="t_customers.fpaymentdue" values="	1/	0/" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_fcity dbname="t_customers.fcity" )
+ column=(type=char(5) updatewhereclause=yes name=t_customers_fstate dbname="t_customers.fstate" )
+ column=(type=char(20) updatewhereclause=yes name=t_customers_fcountry dbname="t_customers.fcountry" )
+ retrieve="  SELECT '0' NO,   
+         ~"t_orders~".~"forderno~",   
+         ~"t_orders~".~"famount~",   
+         ~"t_customers~".~"fcustno~",   
+         ~"t_customers~".~"flastname~",   
+         ~"t_customers~".~"ffirstname~",   
+         ~"t_customers~".~"fm~",   
+         ~"t_customers~".~"faddress~",   
+         ~"t_orders~".~"fstatus~",   
+         ~"t_orders~".~"ftype~",   
+         ~"t_orders~".~"fpaid~",   
+         ~"t_customers~".~"fpaymentdue~",   
+         ~"t_customers~".~"fcity~",   
+         ~"t_customers~".~"fstate~",   
+         ~"t_customers~".~"fcountry~"  
+    FROM ~"t_customers~",   
+         ~"t_orders~"  
+   WHERE ( ~"t_customers~".~"fcustno~" = ~"t_orders~".~"fcustno~" ) and  
+         ( ( ~"t_orders~".~"fstatus~" = :as_status ) )   
+ORDER BY ~"t_orders~".~"forderno~" ASC   
+" arguments=(("as_status", string)) )
+text(band=header alignment="2" text="Order ID" border="0" color="33554432" x="219" y="24" height="64" width="283" html.valueishtml="0"  name=t_orders_forderno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amount" border="0" color="33554432" x="512" y="24" height="64" width="288" html.valueishtml="0"  name=t_orders_famount_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Customer ID" border="0" color="33554432" x="809" y="24" height="64" width="357" html.valueishtml="0"  name=t_customers_fcustno_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Last Name" border="0" color="33554432" x="1175" y="24" height="64" width="389" html.valueishtml="0"  name=t_customers_flastname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="First Name" border="0" color="33554432" x="1573" y="24" height="64" width="325" html.valueishtml="0"  name=t_customers_ffirstname_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Title" border="0" color="33554432" x="1906" y="24" height="64" width="169" html.valueishtml="0"  name=t_customers_fm_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Address" border="0" color="33554432" x="2085" y="24" height="64" width="1257" html.valueishtml="0"  name=t_customers_faddress_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Check" border="0" color="33554432" x="9" y="24" height="64" width="201" html.valueishtml="0"  name=no_t visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="219" y="20" height="64" width="283" format="[general]" html.valueishtml="0"  name=t_orders_forderno  tag="Order No" visible="1" edit.name="em_orderno" editmask.autoskip=yes editmask.mask="#-##-#-##" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="33554432" x="9" y="24" height="84" width="201" format="[general]" html.valueishtml="0"  name=no visible="1" edit.name="cbx_paymentdue" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="512" y="20" height="64" width="288" format="$###,##0.00" html.valueishtml="0"  name=t_orders_famount  tag="Amount" visible="1" edit.limit=0 edit.case=any edit.format="###,##0.00" edit.focusrectangle=no edit.autoselect=no edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="809" y="20" height="64" width="357" format="[general]" html.valueishtml="0"  name=t_customers_fcustno  tag="Customer No" visible="1" edit.name="em_custno" editmask.autoskip=yes editmask.mask="#-##-#" editmask.imemode=0 editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="1175" y="20" height="64" width="389" format="[general]" html.valueishtml="0"  name=t_customers_flastname  tag="Last Name" visible="1" edit.limit=25 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="1573" y="20" height="64" width="325" format="[general]" html.valueishtml="0"  name=t_customers_ffirstname  tag="First Name" visible="1" edit.limit=25 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="1906" y="20" height="64" width="169" format="[general]" html.valueishtml="0"  name=t_customers_fm  tag="FM" visible="1" edit.name="ddlb_title" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="2085" y="20" height="64" width="1257" format="[general]" html.valueishtml="0"  name=t_customers_faddress  tag="Address" visible="1" edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes edit.imemode=0  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="1" text="Total" border="0" color="16711680" x="9" y="28" height="76" width="201" html.valueishtml="0"  name=t_1 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text=" checked:" border="0" color="16711680" x="219" y="28" height="76" width="283" html.valueishtml="0"  name=t_2 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="0" expression="sum(if( no ='1',1,0))"border="0" color="16711680" x="512" y="28" height="64" width="288" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="MS Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" netscapelayers="0" )
