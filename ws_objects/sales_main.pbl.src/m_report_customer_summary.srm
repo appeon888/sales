@@ -24,6 +24,7 @@ end type
 
 on m_file.create
 call super::create
+this.microhelp = "file operator"
 end on
 
 on m_file.destroy
@@ -132,12 +133,22 @@ on m_print.destroy
 call super::destroy
 end on
 
+type m_navigator from m_customer_order`m_navigator within m_file
+end type
+
+on m_navigator.create
+call super::create
+end on
+
+on m_navigator.destroy
+call super::destroy
+end on
+
 type m_step from m_customer_order`m_step within m_file
 end type
 
 on m_step.create
 call super::create
-this.visible = true
 end on
 
 on m_step.destroy
