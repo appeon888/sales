@@ -50,6 +50,7 @@ string		is_Find
 
 boolean		ib_LoadXML
 end variables
+
 forward prototypes
 public subroutine wf_setstyle (string as_style)
 public subroutine wf_refresh_ribbon ()
@@ -1205,7 +1206,7 @@ type wb_1 from webbrowser within w_mdi
 integer x = 59
 integer y = 512
 integer width = 558
-integer height = 616
+integer height = 772
 string defaulturl = "www.appeon.com"
 end type
 
