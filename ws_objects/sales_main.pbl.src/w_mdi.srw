@@ -1203,10 +1203,10 @@ long BackColor=268435456
 end type
 
 type wb_1 from webbrowser within w_mdi
-integer x = 59
+integer x = 37
 integer y = 512
-integer width = 558
-integer height = 772
+integer width = 549
+integer height = 576
 string defaulturl = "www.appeon.com"
 end type
 
