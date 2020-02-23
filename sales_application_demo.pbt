@@ -3,5 +3,5 @@ Save Format v3.0(19990112)
 @end;
 appname "sales_application_demo";
 applib "sales_main.pbl";
-LibList "sales_main.pbl;sales_window.pbl;sales_dw.pbl;testemptypbl2.pbl";
+LibList "sales_main.pbl;sales_window.pbl;sales_dw.pbl;testemptypbl2.pbl;testemptypbl3.pbl";
 type "pb";
