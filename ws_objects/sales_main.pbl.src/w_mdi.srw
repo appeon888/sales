@@ -4,6 +4,8 @@ global type w_mdi from window
 end type
 type mdi_1 from mdiclient within w_mdi
 end type
+type cb_1 from commandbutton within w_mdi
+end type
 type wb_1 from webbrowser within w_mdi
 end type
 type rbb_1 from ribbonbar within w_mdi
@@ -31,6 +33,7 @@ event ue_closesheet ( string as_winname )
 event ue_opensheet ( string as_winname )
 event ue_refresh_ribbonbar ( string as_windowclassname )
 mdi_1 mdi_1
+cb_1 cb_1
 wb_1 wb_1
 rbb_1 rbb_1
 end type
@@ -1120,9 +1123,11 @@ end function
 on w_mdi.create
 if this.MenuName = "m_mdi_none" then this.MenuID = create m_mdi_none
 this.mdi_1=create mdi_1
+this.cb_1=create cb_1
 this.wb_1=create wb_1
 this.rbb_1=create rbb_1
 this.Control[]={this.mdi_1,&
+this.cb_1,&
 this.wb_1,&
 this.rbb_1}
 end on
@@ -1130,6 +1135,7 @@ end on
 on w_mdi.destroy
 if IsValid(MenuID) then destroy(MenuID)
 destroy(this.mdi_1)
+destroy(this.cb_1)
 destroy(this.wb_1)
 destroy(this.rbb_1)
 end on
@@ -1202,11 +1208,26 @@ type mdi_1 from mdiclient within w_mdi
 long BackColor=268435456
 end type
 
+type cb_1 from commandbutton within w_mdi
+integer x = 261
+integer y = 656
+integer width = 402
+integer height = 112
+integer taborder = 10
+integer textsize = -10
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "none"
+end type
+
 type wb_1 from webbrowser within w_mdi
 integer x = 59
 integer y = 512
 integer width = 558
-integer height = 772
+integer height = 672
 string defaulturl = "www.appeon.com"
 end type
 
