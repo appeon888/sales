@@ -4,8 +4,6 @@ global type w_mdi_ribbonbar from window
 end type
 type mdi_1 from mdiclient within w_mdi_ribbonbar
 end type
-type cb_1 from commandbutton within w_mdi_ribbonbar
-end type
 type rbb_1 from ribbonbar within w_mdi_ribbonbar
 end type
 end forward
@@ -30,7 +28,6 @@ boolean center = true
 event ue_closesheet ( string as_winname )
 event ue_opensheet ( string as_winname )
 mdi_1 mdi_1
-cb_1 cb_1
 rbb_1 rbb_1
 end type
 global w_mdi_ribbonbar w_mdi_ribbonbar
@@ -84,17 +81,14 @@ end subroutine
 on w_mdi_ribbonbar.create
 if this.MenuName = "m_customer_order" then this.MenuID = create m_customer_order
 this.mdi_1=create mdi_1
-this.cb_1=create cb_1
 this.rbb_1=create rbb_1
 this.Control[]={this.mdi_1,&
-this.cb_1,&
 this.rbb_1}
 end on
 
 on w_mdi_ribbonbar.destroy
 if IsValid(MenuID) then destroy(MenuID)
 destroy(this.mdi_1)
-destroy(this.cb_1)
 destroy(this.rbb_1)
 end on
 
@@ -150,21 +144,6 @@ end event
 
 type mdi_1 from mdiclient within w_mdi_ribbonbar
 long BackColor=268435456
-end type
-
-type cb_1 from commandbutton within w_mdi_ribbonbar
-integer x = 251
-integer y = 796
-integer width = 402
-integer height = 112
-integer taborder = 10
-integer textsize = -10
-integer weight = 400
-fontcharset fontcharset = ansi!
-fontpitch fontpitch = variable!
-fontfamily fontfamily = swiss!
-string facename = "Arial"
-string text = "none"
 end type
 
 type rbb_1 from ribbonbar within w_mdi_ribbonbar

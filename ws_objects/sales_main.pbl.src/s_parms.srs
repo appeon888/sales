@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_parms.srs
+$PBExportComments$General Purpose structure for passing parms
+global type s_parms from structure
+	string		s_client
+	string		s_clientnotes
+	string		s_server
+	string		s_servernotes
+end type
+
